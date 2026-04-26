@@ -3,32 +3,39 @@ import Base from '@/layouts/Base.astro';
 
 const experiencia = [
   {
-    rol: 'Desarrollador de integraciones CMS',
-    empresa: 'Empresa del sector tecnológico',
-    periodo: '2024 — presente',
-    descripcion: 'Desarrollo del módulo que conecta el CMS con la aplicación principal de la empresa. Backend en Golang.',
-    stack: ['Golang', 'REST APIs'],
+    rol: 'Senior Back-end Developer',
+    empresa: 'Dropi',
+    periodo: 'Abril 2025 — presente',
+    descripcion: 'Diseño y mantenimiento de servicios back-end de alto rendimiento. Arquitecturas serverless con AWS Lambdas en Go. Principios SOLID y control de versiones de BD con Liquibase.',
+    stack: ['Go', 'Laravel', 'AWS Lambdas', 'Docker', 'Liquibase'],
   },
   {
-    rol: 'Desarrollador full-stack',
-    empresa: 'Cliente del sector legal',
-    periodo: '2023 — 2024',
-    descripcion: 'Aplicación web mobile-first para gestionar documentos y organizar los pasos de casos judiciales.',
-    stack: ['Angular', 'Node.js', 'PostgreSQL'],
+    rol: 'Software Engineer',
+    empresa: 'Alexandra Lozano Immigration Law',
+    periodo: 'Abril 2024 — Marzo 2025',
+    descripcion: 'Desarrollo de aplicaciones web responsive, lógica de servidor con NestJS y administración de bases de datos SQL Server.',
+    stack: ['Nuxt 3', 'Vue 3', 'NestJS', 'TypeScript', 'SQL Server'],
   },
   {
-    rol: 'Desarrollador full-stack',
-    empresa: 'Cliente del sector agroindustrial',
-    periodo: '2023',
-    descripcion: 'Plataforma de automatización del proceso de indemnización de pólizas colectivas para caficultores.',
-    stack: ['Angular', 'Spring Boot', 'PostgreSQL'],
+    rol: 'Ingeniero de Desarrollo de Software',
+    empresa: 'DreamCode Software',
+    periodo: 'Septiembre 2021 — Abril 2024',
+    descripcion: 'Desarrollo full-stack con Angular (Microfrontends) y Spring Boot (Microservicios). Diseño de bases de datos y gestión de APIs con AWS API Gateway.',
+    stack: ['Angular', 'Spring Boot', 'PostgreSQL', 'DynamoDB', 'AWS'],
   },
   {
-    rol: 'Desarrollador full-stack',
-    empresa: 'Cliente del sector industrial',
-    periodo: '2022 — 2023',
-    descripcion: 'Dashboard de métricas en tiempo real para monitoreo de máquina industrial vía Firebase.',
-    stack: ['Angular', 'Node.js', 'Firebase'],
+    rol: 'Ingeniero de Desarrollo e Investigación',
+    empresa: 'Axede S.A.S.',
+    periodo: 'Febrero 2021 — Septiembre 2021',
+    descripcion: 'Investigación de tecnologías y desarrollo en Python, C++ y JavaScript. Manejo de bases de datos SQLite y MongoDB.',
+    stack: ['Python', 'C++', 'JavaScript', 'SQLite', 'MongoDB'],
+  },
+  {
+    rol: 'Ingeniero de Desarrollo de Software',
+    empresa: 'QW Health',
+    periodo: 'Noviembre 2019 — Febrero 2021',
+    descripcion: 'Desarrollo full-stack con el stack MEAN. Líder de proyecto y responsable del despliegue y actualización de productos.',
+    stack: ['MongoDB', 'Express', 'Angular', 'Node.js'],
   },
 ];
 ---
@@ -42,14 +49,13 @@ const experiencia = [
     <div class="max-w-2xl mb-16">
       <h1 class="text-4xl font-bold text-gray-900 mb-6">Sobre mí</h1>
       <p class="text-lg text-gray-600 leading-relaxed mb-4">
-        Soy Diego Fernando Pérez, desarrollador full-stack con experiencia en frontend, backend y bases de datos.
-        He trabajado en proyectos que van desde aplicaciones móviles hasta automatización de procesos empresariales,
-        pasando por integraciones de sistemas y dashboards en tiempo real.
+        Soy Diego Fernando Pérez Carvajal, Ingeniero de Sistemas de la Universidad Santiago de Cali
+        con más de 4 años de experiencia en desarrollo de software.
       </p>
       <p class="text-gray-600 leading-relaxed">
-        Mi perfil rotativo no es casualidad: prefiero entender el sistema completo antes de tomar decisiones técnicas.
-        Trabajo principalmente con Angular en frontend, Node.js y Golang en backend,
-        y PostgreSQL como base de datos principal.
+        He trabajado en proyectos que van desde aplicaciones móviles hasta automatización de procesos empresariales,
+        integraciones de sistemas y arquitecturas serverless. Mi perfil rotativo entre frontend, backend y bases de datos
+        me permite entender el sistema completo antes de tomar decisiones técnicas.
       </p>
     </div>
 
@@ -84,10 +90,11 @@ const experiencia = [
       <div class="flex gap-6">
         <div class="w-px bg-gray-100 shrink-0 mt-1.5 ml-1" />
         <div>
-          <h3 class="font-semibold text-gray-900">Ingeniería en Sistemas / Informática</h3>
-          <p class="text-sm text-gray-400 mb-2">Universidad · 2024</p>
+          <h3 class="font-semibold text-gray-900">Ingeniería de Sistemas</h3>
+          <p class="text-sm text-gray-400 mb-2">Universidad Santiago de Cali · 2016 — 2022</p>
           <p class="text-sm text-gray-600">
             Tesis: aplicación móvil de navegación indoor para campus universitario con Google Maps y rutas estáticas.
+            Publicada como artículo académico: <em>Development and Impact of a Mobile Application that Allows Users to Track Their Location on an Educational Institution Campus</em>.
           </p>
         </div>
       </div>
