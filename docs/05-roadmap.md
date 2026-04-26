@@ -26,12 +26,13 @@
 - [x] Resumen profesional definitivo.
 - [x] Fix: selector de idioma con mapa de rutas ES ↔ EN.
 
-## v0.4 — Pulido y deploy
-- [ ] SEO: sitemap, robots.txt, meta tags, OG images.
+## v0.4 — Pulido y deploy ✓ (parcial)
+- [x] SEO: sitemap, robots.txt, meta tags, canonical.
+- [ ] OG image real (placeholder por ahora).
 - [ ] Lighthouse 95+ en todas las categorías.
-- [ ] Deploy a Cloudflare Pages.
-- [ ] Conectar dominio.
-- [ ] Verificar en Google Search Console.
+- [x] Deploy a Cloudflare Pages → `diegoperez-dev.pages.dev`
+- [ ] Conectar dominio `diegoperez.dev` (pendiente compra).
+- [ ] Verificar en Google Search Console (pendiente dominio).
 
 ## v1.0 — Lanzamiento
 - [ ] 3 casos de estudio publicados.
