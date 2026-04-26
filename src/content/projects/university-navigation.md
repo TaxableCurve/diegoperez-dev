@@ -1,6 +1,6 @@
 ---
 title: "Indoor navigation for a university campus"
-summary: "Mobile app with static routes and 360° images to navigate inside campus buildings where GPS fails."
+summary: "Mobile app with static routes and 360° images to navigate inside campus buildings without relying on GPS signal."
 role: "Mobile"
 stack: ["Flutter", "Google Maps SDK", "Dart"]
 client: "University"

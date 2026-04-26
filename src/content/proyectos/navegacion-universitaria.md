@@ -1,6 +1,6 @@
 ---
 title: "Navegación indoor en campus universitario"
-summary: "App móvil con rutas estáticas e imágenes 360° para orientarse dentro del campus cuando el GPS falla."
+summary: "App móvil con rutas estáticas e imágenes 360° para orientarse dentro del campus sin depender de señal GPS."
 role: "Mobile"
 stack: ["Flutter", "Google Maps SDK", "Dart"]
 client: "Universidad"

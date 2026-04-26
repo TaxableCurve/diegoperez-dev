@@ -1,6 +1,6 @@
 ---
 title: "Automatización de indemnizaciones agrícolas"
-summary: "Sistema que reemplazó un proceso 100% manual de análisis de pólizas colectivas para caficultores por un flujo automatizado."
+summary: "Sistema que reemplazó un proceso 100% manual de análisis de pólizas colectivas para agricultores por un flujo automatizado."
 role: "Full-stack"
 stack: ["Angular", "Spring Boot", "PostgreSQL"]
 client: "Cliente del sector agroindustrial"
@@ -12,11 +12,11 @@ draft: false
 
 ## Contexto
 
-Cliente del sector de seguros colectivos agroindustriales. Las pólizas cubrían a caficultores agrupados en cooperativas y la indemnización dependía de parámetros climáticos (lluvia y sequía) según la temporada del cultivo.
+Cliente del sector de seguros colectivos agroindustriales. Las pólizas cubrían a agricultores agrupados en cooperativas y la indemnización dependía de parámetros climáticos (lluvia y sequía) según la temporada del cultivo.
 
 ## Problema
 
-El proceso de liquidación era completamente manual: una persona descargaba un Excel con la lista de caficultores, revisaba los parámetros climáticos uno por uno, consultaba fuentes externas y decidía si cada agricultor cumplía las condiciones para ser indemnizado. El proceso era lento, propenso a errores humanos y no escalaba con el volumen de pólizas.
+El proceso de liquidación era completamente manual: una persona descargaba un Excel con la lista de agricultores, revisaba los parámetros climáticos uno por uno, consultaba fuentes externas y decidía si cada agricultor cumplía las condiciones para ser indemnizado. El proceso era lento, propenso a errores humanos y no escalaba con el volumen de pólizas.
 
 ## Decisiones técnicas
 
@@ -26,7 +26,7 @@ La decisión más importante fue diseñar el flujo alrededor del Excel existente
 
 ## Implementación
 
-- Carga de Excel con Apache POI: el usuario sube el archivo con la lista de caficultores y parámetros de la temporada.
+- Carga de Excel con Apache POI: el usuario sube el archivo con la lista de agricultores y parámetros de la temporada.
 - Pipeline de procesamiento: por cada registro se llaman los endpoints externos de datos climáticos, se cruzan con los parámetros de la póliza y se evalúan las condiciones de indemnización.
 - Motor de reglas configurable: los umbrales de lluvia/sequía por temporada se administran sin necesidad de cambios en el código.
 - Resultado por registro: aprobado / rechazado / pendiente de revisión manual, con trazabilidad completa de por qué se tomó cada decisión.

@@ -1,6 +1,6 @@
 ---
 title: "Agricultural insurance claims automation"
-summary: "System that replaced a fully manual collective policy analysis process for coffee farmers with an automated pipeline."
+summary: "System that replaced a fully manual collective policy analysis process for agricultural workers with an automated pipeline."
 role: "Full-stack"
 stack: ["Angular", "Spring Boot", "PostgreSQL"]
 client: "Agroindustrial sector client"
@@ -12,7 +12,7 @@ draft: false
 
 ## Context
 
-A client in the collective agricultural insurance sector. Policies covered coffee farmers grouped in cooperatives, and indemnification depended on climate parameters (rainfall and drought) based on the crop season.
+A client in the collective agricultural insurance sector. Policies covered agricultural workers grouped in cooperatives, and indemnification depended on climate parameters (rainfall and drought) based on the crop season.
 
 ## Problem
 
