@@ -28,11 +28,17 @@
 
 ## v0.4 — Pulido y deploy ✓ (parcial)
 - [x] SEO: sitemap, robots.txt, meta tags, canonical.
-- [ ] OG image real (placeholder por ahora).
+- [x] OG image oscura con nombre, stack y URL.
 - [ ] Lighthouse 95+ en todas las categorías.
 - [x] Deploy a Cloudflare Pages → `diegoperez-dev.pages.dev`
 - [ ] Conectar dominio `diegoperez.dev` (pendiente compra).
 - [ ] Verificar en Google Search Console (pendiente dominio).
+
+## Ajustes de contenido aplicados
+- [x] Sección "Quién soy" diferenciada del Hero — enfoque en aprendizaje y retos.
+- [x] Bio "Sobre mí" reescrita con narrativa coherente (6 años, trayectoria, tesis).
+- [x] Proyecto agrícola: "caficultores" → "agricultores".
+- [x] Proyecto navegación: "cuando el GPS falla" → "sin depender de señal GPS".
 
 ## v1.0 — Lanzamiento
 - [ ] 3 casos de estudio publicados.
