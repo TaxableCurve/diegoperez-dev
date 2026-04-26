@@ -1,40 +1,41 @@
 ---
-title: "Dashboard de métricas en tiempo real"
-summary: "Plataforma web que visualiza datos de una máquina industrial transmitidos a Firebase en tiempo real."
+title: "Plataforma de monitoreo IoT para totem de bioseguridad"
+summary: "Plataforma IoT en tiempo real para ~100 dispositivos de bioseguridad en Colombia durante la pandemia. Único desarrollador de software."
 role: "Full-stack"
-stack: ["Angular", "Node.js", "Firebase"]
-client: "Cliente del sector industrial"
-year: 2023
+stack: ["Angular", "Node.js", "Firebase", "MongoDB", "Raspberry Pi", "Twilio"]
+client: "Cliente del sector tecnológico"
+year: 2020
 featured: true
-order: 2
+order: 3
 draft: false
 ---
 
 ## Contexto
 
-Cliente del sector industrial con una máquina que transmite datos operativos de forma continua. El equipo de operaciones necesitaba visibilidad en tiempo real sin depender de reportes manuales periódicos.
+Durante la pandemia de COVID-19, la empresa para la que trabajaba desarrolló un totem de bioseguridad para el control de acceso en empresas, universidades, hoteles y bancos. El dispositivo integraba un lector de cédula colombiana (PDF417), sensor de temperatura de precisión médica, dispensador de gel con sensor de proximidad y sistema de audio guiado — todo orquestado desde una Raspberry Pi con Node.js. Fui el único desarrollador de software del proyecto.
 
 ## Problema
 
-Los datos llegaban al sistema pero no había forma de monitorearlos en vivo. El flujo existente requería exportar registros manualmente y revisarlos después del hecho, lo que impedía detectar anomalías a tiempo.
+Con cerca de 100 unidades distribuidas en todo el país, cada una registrando el acceso de empleados y visitantes durante la jornada, la empresa y sus clientes necesitaban visibilidad centralizada: saber en tiempo real qué ocurría en cada instalación, detectar alertas de temperatura elevada y mantener un histórico por punto de control. La conectividad a internet no estaba garantizada en todos los sitios.
 
 ## Decisiones técnicas
 
-Se eligió Firebase Realtime Database como capa de transporte: la máquina ya empujaba datos ahí y añadir un listener en el frontend era directo. Angular con RxJS permitió manejar el stream de datos de forma reactiva sin polling.
+Firebase Realtime Database como capa de sincronización central: cada dispositivo guardaba los registros en MongoDB local y los subía a Firebase al recuperar conexión. Este patrón offline-first fue crítico — varias instalaciones tenían conectividad intermitente y no podíamos perder registros.
 
-Node.js en el backend se encargó de la normalización y validación de los datos antes de escribirlos en Firebase, aislando la lógica de negocio del cliente.
+Angular con RxJS en el frontend para consumir el stream de Firebase reactivamente, sin polling. Twilio para notificaciones SMS al administrador de cada instalación ante alertas de temperatura elevada.
 
 ## Implementación
 
-- Servicio Angular con `AngularFire` suscrito al nodo de Firebase correspondiente a la máquina.
-- Componentes de gráficas con actualización en vivo al recibir cada nuevo valor.
-- Backend Node.js con reglas de validación y transformación antes de persistir.
-- Control de acceso por roles: operadores ven datos en vivo, administradores acceden al histórico.
+- Orquestación en Node.js sobre Raspberry Pi: manejo del flujo completo (detección de presencia → lectura de cédula → toma de temperatura → dispensado de gel) como máquina de estados.
+- Sincronización offline-first: persistencia local en MongoDB y sincronización automática con Firebase al recuperar internet.
+- Dashboard Angular en tiempo real con el registro de cada persona: documento de identidad, temperatura, resultado y timestamp.
+- Vista multi-instalación: cada empresa administraba únicamente sus propios dispositivos.
+- Alertas SMS vía Twilio disparadas automáticamente ante temperatura fuera de rango.
 
 ## Resultado
 
-El equipo de operaciones pasó de revisar reportes con horas de retraso a tener visibilidad instantánea del estado de la máquina. La detección de valores fuera de rango mejoró notablemente al ser visible en el momento en que ocurre.
+La plataforma operó en paralelo al despliegue de aproximadamente 100 unidades en empresas, universidades, hoteles y entidades financieras de Colombia. El sistema de sincronización offline garantizó que no se perdieran registros en instalaciones con conectividad irregular.
 
 ## Aprendizajes
 
-Firebase Realtime Database funciona bien para este volumen, pero si los datos crecieran considerablemente migraría a Firestore o a una solución con WebSockets propios para tener más control sobre la estructura de consultas.
+El patrón offline-first fue la decisión más acertada del proyecto — tomada desde el inicio al anticipar que no todos los sitios tendrían internet estable. Si lo repitiera, diseñaría el panel multi-tenant con un modelo de permisos más granular desde el día uno, en lugar de ajustarlo incrementalmente a medida que crecía el número de clientes.

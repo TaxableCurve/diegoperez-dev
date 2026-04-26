@@ -1,40 +1,41 @@
 ---
-title: "Real-time metrics dashboard"
-summary: "Web platform that visualizes live data from an industrial machine streamed through Firebase."
+title: "IoT monitoring platform for biosecurity kiosk"
+summary: "Real-time IoT platform for ~100 biosecurity devices deployed across Colombia during the pandemic. Sole software developer."
 role: "Full-stack"
-stack: ["Angular", "Node.js", "Firebase"]
-client: "Industrial sector client"
-year: 2023
+stack: ["Angular", "Node.js", "Firebase", "MongoDB", "Raspberry Pi", "Twilio"]
+client: "Technology sector client"
+year: 2020
 featured: true
-order: 2
+order: 3
 draft: false
 ---
 
 ## Context
 
-An industrial client with a machine that continuously transmits operational data. The operations team needed real-time visibility instead of relying on manual periodic reports.
+During the COVID-19 pandemic, the company I worked for developed a biosecurity kiosk for access control at businesses, universities, hotels, and banks. The device combined a Colombian national ID reader (PDF417), a medical-grade temperature sensor, a proximity-triggered gel dispenser, and an audio guidance system — all orchestrated from a Raspberry Pi running Node.js. I was the sole software developer on the project.
 
 ## Problem
 
-Data was reaching the system but there was no way to monitor it live. The existing workflow required manually exporting records and reviewing them after the fact, making it impossible to detect anomalies in time.
+With roughly 100 units deployed across the country, each logging employee and visitor access throughout the day, the company and its clients needed centralized visibility: real-time awareness of what was happening at each location, detection of elevated-temperature alerts, and a historical record per checkpoint. Internet connectivity was not guaranteed at every site.
 
 ## Technical decisions
 
-Firebase Realtime Database was chosen as the transport layer: the machine was already pushing data there, and adding a frontend listener was straightforward. Angular with RxJS allowed handling the data stream reactively without polling.
+Firebase Realtime Database as the central sync layer: each device stored records locally in MongoDB and uploaded them to Firebase once the connection was restored. This offline-first pattern was critical — several installations had intermittent connectivity and losing records was not acceptable.
 
-Node.js on the backend handled normalization and validation before writing to Firebase, keeping business logic isolated from the client.
+Angular with RxJS on the frontend to consume the Firebase stream reactively, without polling. Twilio for SMS notifications to each installation's administrator when a temperature alert was triggered.
 
 ## Implementation
 
-- Angular service using `AngularFire` subscribed to the machine's Firebase node.
-- Chart components with live updates on each new incoming value.
-- Node.js backend with validation and transformation rules before persisting data.
-- Role-based access control: operators see live data, admins access historical records.
+- Node.js orchestration on the Raspberry Pi: managing the full flow (presence detection → ID reading → temperature check → gel dispensing) as a state machine.
+- Offline-first sync: local persistence in MongoDB with automatic sync to Firebase on reconnect.
+- Real-time Angular dashboard with each person's record: ID number, temperature, result, and timestamp.
+- Multi-installation view: each company managed only their own devices.
+- Automated SMS alerts via Twilio triggered on out-of-range temperature readings.
 
 ## Result
 
-The operations team went from reviewing reports with hours of delay to having instant visibility into machine status. Out-of-range value detection improved significantly since anomalies become visible the moment they occur.
+The platform ran alongside the deployment of approximately 100 units at companies, universities, hotels, and financial institutions across Colombia. The offline sync system ensured no records were lost at sites with unreliable connectivity.
 
 ## Lessons learned
 
-Firebase Realtime Database works well at this scale, but if data volume grew significantly I would migrate to Firestore or a custom WebSocket solution for better control over query structure.
+The offline-first pattern was the best decision on the project — made upfront by anticipating that not every site would have stable internet. If I were to do it again, I would design the multi-tenant permission model with more granularity from day one, rather than adjusting it incrementally as the client base grew.

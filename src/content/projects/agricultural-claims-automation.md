@@ -4,9 +4,9 @@ summary: "System that replaced a fully manual collective policy analysis process
 role: "Full-stack"
 stack: ["Angular", "Spring Boot", "PostgreSQL"]
 client: "Agroindustrial sector client"
-year: 2023
+year: 2024
 featured: true
-order: 3
+order: 1
 draft: false
 ---
 

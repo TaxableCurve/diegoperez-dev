@@ -4,9 +4,9 @@ summary: "App móvil con rutas estáticas e imágenes 360° para orientarse dent
 role: "Mobile"
 stack: ["Flutter", "Google Maps SDK", "Dart"]
 client: "Universidad"
-year: 2024
+year: 2022
 featured: true
-order: 1
+order: 2
 draft: false
 ---
 

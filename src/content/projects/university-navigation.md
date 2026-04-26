@@ -4,9 +4,9 @@ summary: "Mobile app with static routes and 360° images to navigate inside camp
 role: "Mobile"
 stack: ["Flutter", "Google Maps SDK", "Dart"]
 client: "University"
-year: 2024
+year: 2022
 featured: true
-order: 1
+order: 2
 draft: false
 ---
 

@@ -4,9 +4,9 @@ summary: "Sistema que reemplazó un proceso 100% manual de análisis de pólizas
 role: "Full-stack"
 stack: ["Angular", "Spring Boot", "PostgreSQL"]
 client: "Cliente del sector agroindustrial"
-year: 2023
+year: 2024
 featured: true
-order: 3
+order: 1
 draft: false
 ---
 
