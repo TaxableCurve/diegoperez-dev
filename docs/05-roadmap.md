@@ -29,7 +29,7 @@
 ## v0.4 — Pulido y deploy ✓ (parcial)
 - [x] SEO: sitemap, robots.txt, meta tags, canonical.
 - [x] OG image oscura con nombre, stack y URL.
-- [ ] Lighthouse 95+ en todas las categorías.
+- [x] Lighthouse 95+ en todas las categorías. (100/100/100/100)
 - [x] Deploy a Cloudflare Pages → `diegoperez-dev.pages.dev`
 - [ ] Conectar dominio `diegoperez.dev` (pendiente compra).
 - [ ] Verificar en Google Search Console (pendiente dominio).
@@ -41,7 +41,7 @@
 - [x] Proyecto navegación: "cuando el GPS falla" → "sin depender de señal GPS".
 
 ## v1.0 — Lanzamiento
-- [ ] 3 casos de estudio publicados.
+- [ ] 3 casos de estudio revisados y publicados (actualmente en borrador).
 - [ ] Anuncio en LinkedIn / Twitter.
 - [ ] Añadir link en GitHub profile y firma de email.
 
