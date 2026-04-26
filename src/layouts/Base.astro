@@ -1,11 +1,20 @@
 ---
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+
 interface Props {
   title: string;
   description?: string;
-  lang?: string;
+  lang?: 'es' | 'en';
 }
 
-const { title, description = 'Portafolio de Diego Fernando Pérez', lang = 'es' } = Astro.props;
+const {
+  title,
+  description = 'Portafolio de Diego Fernando Pérez, desarrollador full-stack.',
+  lang = 'es',
+} = Astro.props;
+
+const currentPath = Astro.url.pathname;
 ---
 
 <!doctype html>
@@ -18,6 +27,10 @@ const { title, description = 'Portafolio de Diego Fernando Pérez', lang = 'es' 
     <link rel="stylesheet" href="/styles/global.css" />
   </head>
   <body class="bg-white text-gray-900 antialiased">
-    <slot />
+    <Header lang={lang} currentPath={currentPath} />
+    <main>
+      <slot />
+    </main>
+    <Footer lang={lang} />
   </body>
 </html>

@@ -1,0 +1,18 @@
+---
+interface Props {
+  lang: 'es' | 'en';
+}
+const { lang } = Astro.props;
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-gray-100 mt-24">
+  <div class="max-w-5xl mx-auto px-6 py-10 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-500">
+    <span>© {year} Diego Fernando Pérez</span>
+    <div class="flex items-center gap-5">
+      <a href="mailto:diego.fdo.perez7@hotmail.com" class="hover:text-gray-900 transition-colors">Email</a>
+      <a href="https://github.com/TaxableCurve" target="_blank" rel="noopener" class="hover:text-gray-900 transition-colors">GitHub</a>
+      <a href="https://linkedin.com/in/diegofperez" target="_blank" rel="noopener" class="hover:text-gray-900 transition-colors">LinkedIn</a>
+    </div>
+  </div>
+</footer>

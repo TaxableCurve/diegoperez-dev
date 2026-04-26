@@ -1,0 +1,53 @@
+---
+interface Props {
+  lang: 'es' | 'en';
+  currentPath: string;
+}
+
+const { lang, currentPath } = Astro.props;
+
+const isEn = lang === 'en';
+
+const nav = isEn
+  ? [
+      { href: '/en/', label: 'Home' },
+      { href: '/en/projects/', label: 'Projects' },
+      { href: '/en/about/', label: 'About' },
+      { href: '/en/contact/', label: 'Contact' },
+    ]
+  : [
+      { href: '/', label: 'Inicio' },
+      { href: '/proyectos/', label: 'Proyectos' },
+      { href: '/sobre-mi/', label: 'Sobre mí' },
+      { href: '/contacto/', label: 'Contacto' },
+    ];
+
+const langToggle = isEn
+  ? { href: currentPath.replace(/^\/en/, '') || '/', label: 'ES' }
+  : { href: '/en' + (currentPath === '/' ? '/' : currentPath), label: 'EN' };
+---
+
+<header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-gray-100">
+  <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
+    <a href={isEn ? '/en/' : '/'} class="font-semibold text-gray-900 hover:text-indigo-600 transition-colors">
+      Diego Pérez
+    </a>
+
+    <nav class="flex items-center gap-1">
+      {nav.map(({ href, label }) => (
+        <a
+          href={href}
+          class="px-3 py-1.5 text-sm text-gray-600 hover:text-gray-900 rounded-md hover:bg-gray-50 transition-colors"
+        >
+          {label}
+        </a>
+      ))}
+      <a
+        href={langToggle.href}
+        class="ml-3 px-3 py-1.5 text-sm font-medium text-indigo-600 border border-indigo-200 rounded-md hover:bg-indigo-50 transition-colors"
+      >
+        {langToggle.label}
+      </a>
+    </nav>
+  </div>
+</header>

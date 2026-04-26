@@ -1,9 +1,112 @@
 ---
 import Base from '@/layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const projects = await getCollection('projects', ({ data }) =>
+  data.featured && !data.draft
+);
+projects.sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99));
+
+const stack = {
+  Frontend: ['Angular', 'Flutter', 'Tailwind CSS', 'TypeScript'],
+  Backend: ['Node.js', 'Spring Boot', 'Golang'],
+  Database: ['PostgreSQL', 'MongoDB', 'Firebase'],
+  DevOps: ['Cloudflare Pages', 'GitHub Actions', 'Docker'],
+};
 ---
 
-<Base title="Diego Fernando Pérez — Full-Stack Developer" lang="en">
-  <main class="min-h-screen flex items-center justify-center">
-    <p class="text-2xl font-semibold">Coming soon — diegoperez.dev</p>
-  </main>
+<Base
+  title="Diego Fernando Pérez — Full-Stack Developer"
+  description="Portfolio of Diego Fernando Pérez, full-stack developer with experience in frontend, backend and databases."
+  lang="en"
+>
+  <!-- Hero -->
+  <section class="max-w-5xl mx-auto px-6 pt-24 pb-16">
+    <p class="text-indigo-600 font-medium mb-3">Hi, I'm Diego</p>
+    <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 leading-tight mb-6">
+      Full-stack developer<br />who solves real problems.
+    </h1>
+    <p class="text-lg text-gray-600 max-w-2xl mb-8">
+      I work across frontend, backend and databases depending on what the project needs.
+      Here I document what I've built, the decisions I made and what I learned along the way.
+    </p>
+    <div class="flex flex-wrap gap-3">
+      <a href="/en/projects/" class="px-5 py-2.5 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700 transition-colors">
+        View projects
+      </a>
+      <a href="/en/contact/" class="px-5 py-2.5 border border-gray-200 text-gray-700 rounded-lg font-medium hover:bg-gray-50 transition-colors">
+        Get in touch
+      </a>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="max-w-5xl mx-auto px-6 py-16 border-t border-gray-100">
+    <h2 class="text-2xl font-bold text-gray-900 mb-4">Who I am in 30 seconds</h2>
+    <p class="text-gray-600 max-w-2xl leading-relaxed">
+      I'm a full-stack developer with hands-on experience rotating between frontend, backend and databases.
+      I've worked on mobile apps, real-time dashboards, process automation and system integrations.
+      My approach is to understand the problem before choosing the tool.
+    </p>
+  </section>
+
+  <!-- Featured projects -->
+  <section class="max-w-5xl mx-auto px-6 py-16 border-t border-gray-100">
+    <div class="flex items-center justify-between mb-8">
+      <h2 class="text-2xl font-bold text-gray-900">Featured projects</h2>
+      <a href="/en/projects/" class="text-sm text-indigo-600 hover:underline">View all →</a>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {projects.map((p) => (
+        <a
+          href={`/en/projects/${p.id}/`}
+          class="group flex flex-col p-6 border border-gray-100 rounded-xl hover:border-indigo-200 hover:shadow-sm transition-all"
+        >
+          <div class="flex items-center gap-2 mb-3">
+            <span class="text-xs font-medium text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded">
+              {p.data.role}
+            </span>
+            <span class="text-xs text-gray-400">{p.data.year}</span>
+          </div>
+          <h3 class="font-semibold text-gray-900 mb-2 group-hover:text-indigo-600 transition-colors">
+            {p.data.title}
+          </h3>
+          <p class="text-sm text-gray-500 leading-relaxed flex-1">{p.data.summary}</p>
+          <div class="flex flex-wrap gap-1.5 mt-4">
+            {p.data.stack.slice(0, 3).map((t) => (
+              <span class="text-xs text-gray-500 bg-gray-50 px-2 py-0.5 rounded">{t}</span>
+            ))}
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- Stack -->
+  <section class="max-w-5xl mx-auto px-6 py-16 border-t border-gray-100">
+    <h2 class="text-2xl font-bold text-gray-900 mb-8">Stack</h2>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      {Object.entries(stack).map(([area, techs]) => (
+        <div>
+          <h3 class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">{area}</h3>
+          <ul class="space-y-1.5">
+            {techs.map((t) => (
+              <li class="text-sm text-gray-700">{t}</li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Contact CTA -->
+  <section class="max-w-5xl mx-auto px-6 py-16 border-t border-gray-100">
+    <h2 class="text-2xl font-bold text-gray-900 mb-4">Let's talk</h2>
+    <p class="text-gray-600 mb-6">
+      Open to remote work opportunities, consulting and freelance projects.
+    </p>
+    <a href="/en/contact/" class="px-5 py-2.5 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700 transition-colors inline-block">
+      Go to contact
+    </a>
+  </section>
 </Base>

@@ -1,0 +1,106 @@
+---
+import Base from '@/layouts/Base.astro';
+
+const experiencia = [
+  {
+    rol: 'Desarrollador de integraciones CMS',
+    empresa: 'Empresa del sector tecnológico',
+    periodo: '2024 — presente',
+    descripcion: 'Desarrollo del módulo que conecta el CMS con la aplicación principal de la empresa. Backend en Golang.',
+    stack: ['Golang', 'REST APIs'],
+  },
+  {
+    rol: 'Desarrollador full-stack',
+    empresa: 'Cliente del sector legal',
+    periodo: '2023 — 2024',
+    descripcion: 'Aplicación web mobile-first para gestionar documentos y organizar los pasos de casos judiciales.',
+    stack: ['Angular', 'Node.js', 'PostgreSQL'],
+  },
+  {
+    rol: 'Desarrollador full-stack',
+    empresa: 'Cliente del sector agroindustrial',
+    periodo: '2023',
+    descripcion: 'Plataforma de automatización del proceso de indemnización de pólizas colectivas para caficultores.',
+    stack: ['Angular', 'Spring Boot', 'PostgreSQL'],
+  },
+  {
+    rol: 'Desarrollador full-stack',
+    empresa: 'Cliente del sector industrial',
+    periodo: '2022 — 2023',
+    descripcion: 'Dashboard de métricas en tiempo real para monitoreo de máquina industrial vía Firebase.',
+    stack: ['Angular', 'Node.js', 'Firebase'],
+  },
+];
+---
+
+<Base
+  title="Sobre mí — Diego Fernando Pérez"
+  description="Desarrollador full-stack con experiencia en frontend, backend y bases de datos."
+>
+  <div class="max-w-5xl mx-auto px-6 pt-16 pb-24">
+    <!-- Encabezado -->
+    <div class="max-w-2xl mb-16">
+      <h1 class="text-4xl font-bold text-gray-900 mb-6">Sobre mí</h1>
+      <p class="text-lg text-gray-600 leading-relaxed mb-4">
+        Soy Diego Fernando Pérez, desarrollador full-stack con experiencia en frontend, backend y bases de datos.
+        He trabajado en proyectos que van desde aplicaciones móviles hasta automatización de procesos empresariales,
+        pasando por integraciones de sistemas y dashboards en tiempo real.
+      </p>
+      <p class="text-gray-600 leading-relaxed">
+        Mi perfil rotativo no es casualidad: prefiero entender el sistema completo antes de tomar decisiones técnicas.
+        Trabajo principalmente con Angular en frontend, Node.js y Golang en backend,
+        y PostgreSQL como base de datos principal.
+      </p>
+    </div>
+
+    <!-- Experiencia -->
+    <section class="mb-16">
+      <h2 class="text-xl font-bold text-gray-900 mb-8">Experiencia</h2>
+      <div class="space-y-8">
+        {experiencia.map((e) => (
+          <div class="flex gap-6">
+            <div class="w-px bg-gray-100 shrink-0 mt-1.5 ml-1" />
+            <div>
+              <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1 mb-1">
+                <h3 class="font-semibold text-gray-900">{e.rol}</h3>
+                <span class="text-sm text-gray-400">{e.empresa}</span>
+              </div>
+              <p class="text-xs text-indigo-600 font-medium mb-2">{e.periodo}</p>
+              <p class="text-sm text-gray-600 leading-relaxed mb-3">{e.descripcion}</p>
+              <div class="flex flex-wrap gap-1.5">
+                {e.stack.map((t) => (
+                  <span class="text-xs text-gray-500 bg-gray-50 border border-gray-100 px-2 py-0.5 rounded">{t}</span>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Formación -->
+    <section class="mb-16">
+      <h2 class="text-xl font-bold text-gray-900 mb-6">Formación</h2>
+      <div class="flex gap-6">
+        <div class="w-px bg-gray-100 shrink-0 mt-1.5 ml-1" />
+        <div>
+          <h3 class="font-semibold text-gray-900">Ingeniería en Sistemas / Informática</h3>
+          <p class="text-sm text-gray-400 mb-2">Universidad · 2024</p>
+          <p class="text-sm text-gray-600">
+            Tesis: aplicación móvil de navegación indoor para campus universitario con Google Maps y rutas estáticas.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <div class="flex flex-wrap gap-3">
+      <a href="/proyectos/" class="px-5 py-2.5 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700 transition-colors">
+        Ver proyectos
+      </a>
+      <a href="/contacto/" class="px-5 py-2.5 border border-gray-200 text-gray-700 rounded-lg font-medium hover:bg-gray-50 transition-colors">
+        Contactarme
+      </a>
+    </div>
+  </div>
+</Base>
