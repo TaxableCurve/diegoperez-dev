@@ -3,3 +3,4 @@ dist/
 .astro/
 .env
 .env.local
+public/og-default.svg
