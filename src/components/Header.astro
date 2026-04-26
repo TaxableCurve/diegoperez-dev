@@ -22,9 +22,32 @@ const nav = isEn
       { href: '/contacto/', label: 'Contacto' },
     ];
 
-const langToggle = isEn
-  ? { href: currentPath.replace(/^\/en/, '') || '/', label: 'ES' }
-  : { href: '/en' + (currentPath === '/' ? '/' : currentPath), label: 'EN' };
+// Mapa de rutas ES → EN y EN → ES
+const routeMap: Record<string, string> = {
+  '/': '/en/',
+  '/proyectos/': '/en/projects/',
+  '/sobre-mi/': '/en/about/',
+  '/contacto/': '/en/contact/',
+  '/en/': '/',
+  '/en/projects/': '/proyectos/',
+  '/en/about/': '/sobre-mi/',
+  '/en/contact/': '/contacto/',
+};
+
+// Para casos de estudio individuales
+const slugPath = currentPath.match(/^\/proyectos\/(.+)\/$/) ;
+const enSlugPath = currentPath.match(/^\/en\/projects\/(.+)\/$/);
+
+let toggleHref: string;
+if (slugPath) {
+  toggleHref = `/en/projects/${slugPath[1]}/`;
+} else if (enSlugPath) {
+  toggleHref = `/proyectos/${enSlugPath[1]}/`;
+} else {
+  toggleHref = routeMap[currentPath] ?? (isEn ? '/' : '/en/');
+}
+
+const langToggle = { href: toggleHref, label: isEn ? 'ES' : 'EN' };
 ---
 
 <header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-gray-100">

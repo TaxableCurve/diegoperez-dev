@@ -8,23 +8,23 @@
 - [x] Elegir nombre + dominio → `diegoperez.dev`
 - [x] Definir 3 proyectos a documentar → ver `docs/04-flujo-contenido.md`
 
-## v0.2 — Andamiaje (siguiente paso)
+## v0.2 — Andamiaje ✓
+- [x] Astro 6 + plantilla mínima con pnpm.
+- [x] Configurar Tailwind CSS v4 vía `@tailwindcss/vite`.
+- [x] Configurar i18n nativo (ES default, `/en/` para EN).
+- [x] Configurar Content Collections con Zod (nueva Content Layer API).
+- [x] Layout base + Header con nav + Footer.
+- [x] Repo público en GitHub (`TaxableCurve/diegoperez-dev`).
 
-## v0.2 — Andamiaje
-- [ ] `npm create astro@latest` con plantilla mínima.
-- [ ] Configurar Tailwind CSS v4.
-- [ ] Configurar i18n (ES/EN).
-- [ ] Configurar Content Collections con Zod.
-- [ ] Layout base + header + footer + theme toggle.
-- [ ] Repo en GitHub.
-
-## v0.3 — Contenido v1
-- [ ] Home (ES + EN).
-- [ ] Página "Sobre mí" (ES + EN).
-- [ ] Página de listado de proyectos.
-- [ ] Plantilla de caso de estudio.
-- [ ] 1 caso de estudio completo como referencia.
-- [ ] Página de contacto (mailto v1).
+## v0.3 — Contenido v1 ✓
+- [x] Home (ES + EN) con hero, pitch, proyectos destacados, stack y CTA.
+- [x] Página "Sobre mí" (ES + EN) con experiencia real y formación.
+- [x] Página de listado de proyectos (ES + EN).
+- [x] Template de caso de estudio con prose (ES + EN).
+- [x] 3 casos de estudio completos en borrador (ES + EN).
+- [x] Página de contacto con email, GitHub y LinkedIn (ES + EN).
+- [x] Resumen profesional definitivo.
+- [x] Fix: selector de idioma con mapa de rutas ES ↔ EN.
 
 ## v0.4 — Pulido y deploy
 - [ ] SEO: sitemap, robots.txt, meta tags, OG images.
