@@ -41,8 +41,8 @@
 - [x] Proyecto navegación: "cuando el GPS falla" → "sin depender de señal GPS".
 
 ## v1.0 — Lanzamiento
-- [ ] 3 casos de estudio revisados y publicados (actualmente en borrador).
-- [ ] Anuncio en LinkedIn / Twitter.
+- [x] 3 casos de estudio revisados y publicados.
+- [ ] Anuncio en LinkedIn / Twitter (pendiente decisión).
 - [ ] Añadir link en GitHub profile y firma de email.
 
 ## v1.1+ (futuro)
