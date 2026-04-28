@@ -19,7 +19,7 @@ const {
 
 const currentPath = Astro.url.pathname;
 const canonicalURL = new URL(currentPath, 'https://diegoperez.co');
-const ogImageURL = new URL(ogImage, 'https://diegoperez.co');
+const ogImageURL = new URL(ogImage, Astro.url.origin);
 ---
 
 <!doctype html>
