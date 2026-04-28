@@ -12,8 +12,8 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
-    <radialGradient id="glow" cx="35%" cy="50%" r="55%">
-      <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.18"/>
+    <radialGradient id="glow" cx="32%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.16"/>
       <stop offset="100%" stop-color="#0c0f14" stop-opacity="0"/>
     </radialGradient>
     <pattern id="dots" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
@@ -21,45 +21,48 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" v
     </pattern>
   </defs>
 
+  <!-- Fondo base -->
   <rect width="1200" height="630" fill="#0c0f14"/>
   <rect width="1200" height="630" fill="url(#dots)"/>
   <rect width="1200" height="630" fill="url(#glow)"/>
 
+  <!-- Barra izquierda -->
   <rect x="0" y="0" width="4" height="630" fill="#22d3ee"/>
 
-  <text x="80" y="118" font-family="monospace" font-size="13" font-weight="400"
-    fill="#22d3ee" letter-spacing="3">PORTFOLIO · FULL-STACK DEVELOPER</text>
+  <!-- Label superior -->
+  <text x="80" y="110" font-family="monospace" font-size="13" fill="#22d3ee" letter-spacing="3">PORTFOLIO · FULL-STACK DEVELOPER</text>
 
-  <text x="80" y="256" font-family="system-ui, -apple-system, sans-serif"
-    font-size="64" font-weight="700" fill="#dce4f0" letter-spacing="-1">Diego Fernando Perez</text>
+  <!-- Nombre -->
+  <text x="80" y="240" font-family="system-ui, -apple-system, sans-serif"
+    font-size="62" font-weight="700" fill="#dce4f0" letter-spacing="-1">Diego Fernando Perez</text>
 
-  <text x="80" y="322" font-family="system-ui, -apple-system, sans-serif"
-    font-size="26" font-weight="300" fill="#8a9bb5">Disfruto el frontend.</text>
-  <text x="80" y="362" font-family="system-ui, -apple-system, sans-serif"
-    font-size="26" font-weight="300" fill="#8a9bb5">Vivo el backend.</text>
+  <!-- Tagline -->
+  <text x="80" y="298" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="400" xml:space="preserve"><tspan fill="#8a9bb5">Disfruto el </tspan><tspan fill="#22d3ee">frontend</tspan><tspan fill="#8a9bb5">.</tspan></text>
+  <text x="80" y="332" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="400" xml:space="preserve"><tspan fill="#8a9bb5">Vivo el </tspan><tspan fill="#22d3ee">backend</tspan><tspan fill="#8a9bb5">.</tspan></text>
 
-  <rect x="80" y="400" width="500" height="1" fill="#1e2535"/>
+  <!-- Separador -->
+  <rect x="80" y="368" width="420" height="1" fill="#1e2535"/>
 
-  <rect x="80" y="425" width="96" height="30" rx="5" fill="#131720" stroke="#22d3ee" stroke-width="1" stroke-opacity="0.5"/>
-  <text x="128" y="445" font-family="monospace" font-size="13" fill="#22d3ee" text-anchor="middle">Angular</text>
+  <!-- Columnas de stack -->
+  <!-- Columna Frontend -->
+  <text x="80" y="398" font-family="monospace" font-size="11" fill="#22d3ee" letter-spacing="2">FRONTEND</text>
+  <text x="80" y="424" font-family="monospace" font-size="15" fill="#dce4f0">Angular</text>
+  <text x="80" y="450" font-family="monospace" font-size="15" fill="#dce4f0">Flutter</text>
 
-  <rect x="188" y="425" width="82" height="30" rx="5" fill="#131720" stroke="#1e2535" stroke-width="1"/>
-  <text x="229" y="445" font-family="monospace" font-size="13" fill="#8a9bb5" text-anchor="middle">NestJS</text>
+  <!-- Divisor vertical entre columnas -->
+  <rect x="210" y="385" width="1" height="78" fill="#1e2535"/>
 
-  <rect x="282" y="425" width="60" height="30" rx="5" fill="#131720" stroke="#1e2535" stroke-width="1"/>
-  <text x="312" y="445" font-family="monospace" font-size="13" fill="#8a9bb5" text-anchor="middle">Go</text>
+  <!-- Columna Backend -->
+  <text x="230" y="398" font-family="monospace" font-size="11" fill="#22d3ee" letter-spacing="2">BACKEND</text>
+  <text x="230" y="424" font-family="monospace" font-size="15" fill="#dce4f0">NestJS</text>
+  <text x="230" y="450" font-family="monospace" font-size="15" fill="#dce4f0">Go</text>
 
-  <rect x="354" y="425" width="84" height="30" rx="5" fill="#131720" stroke="#1e2535" stroke-width="1"/>
-  <text x="396" y="445" font-family="monospace" font-size="13" fill="#8a9bb5" text-anchor="middle">Flutter</text>
+  <!-- URL -->
+  <text x="80" y="556" font-family="monospace" font-size="16" fill="#22d3ee">diegoperez.co</text>
 
-  <text x="80" y="556" font-family="monospace" font-size="17" fill="#22d3ee">diegoperez.dev</text>
-
-  <circle cx="1000" cy="315" r="200" fill="none" stroke="#22d3ee" stroke-width="1" opacity="0.05"/>
-  <circle cx="1000" cy="315" r="140" fill="none" stroke="#22d3ee" stroke-width="1" opacity="0.09"/>
-  <circle cx="1000" cy="315" r="80" fill="none" stroke="#22d3ee" stroke-width="1" opacity="0.14"/>
-  <circle cx="1000" cy="315" r="28" fill="#22d3ee" opacity="0.07"/>
-  <line x1="1000" y1="280" x2="1000" y2="350" stroke="#22d3ee" stroke-width="1" opacity="0.18"/>
-  <line x1="965" y1="315" x2="1035" y2="315" stroke="#22d3ee" stroke-width="1" opacity="0.18"/>
+  <!-- Decoracion derecha: </> centrado en zona derecha -->
+  <text x="920" y="440" font-family="monospace" font-size="200" font-weight="700"
+    fill="#22d3ee" fill-opacity="0.11" text-anchor="middle">&lt;/&gt;</text>
 </svg>`;
 
 const svgPath = join(__dirname, '../public/og-default.svg');

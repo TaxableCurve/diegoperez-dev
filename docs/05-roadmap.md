@@ -5,7 +5,7 @@
 - [x] Definir estructura de rutas.
 - [x] Elegir stack técnico.
 - [x] Definir flujo de contenido.
-- [x] Elegir nombre + dominio → `diegoperez.dev`
+- [x] Elegir nombre + dominio → `diegoperez.co`
 - [x] Definir 3 proyectos a documentar → ver `docs/04-flujo-contenido.md`
 
 ## v0.2 — Andamiaje ✓
@@ -30,7 +30,7 @@
 - [x] SEO: sitemap, robots.txt, meta tags, canonical.
 - [x] Lighthouse 100/100/100/100 desktop, 98 mobile.
 - [x] Deploy a Cloudflare Pages → `diegoperez-dev.pages.dev`
-- [ ] Conectar dominio `diegoperez.dev` (pendiente compra).
+- [ ] Conectar dominio `diegoperez.co` (pendiente compra).
 - [ ] Verificar en Google Search Console (pendiente dominio).
 
 ## v0.5 — Rediseño visual ✓
@@ -57,7 +57,7 @@
 - [ ] Métricas concretas en casos de estudio (números, volumen, tiempo).
 - [ ] Anuncio en LinkedIn.
 - [ ] Añadir link en GitHub profile y firma de email.
-- [ ] Conectar dominio `diegoperez.dev`.
+- [ ] Conectar dominio `diegoperez.co`.
 
 ## v1.1+ (futuro)
 - [ ] Referencia a Claude en footer o página about.

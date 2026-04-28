@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://diegoperez.dev/sitemap-index.xml
+Sitemap: https://diegoperez.co/sitemap-index.xml
