@@ -1,0 +1,23 @@
+---
+interface Stat {
+  valor: string;
+  label: string;
+}
+
+interface Props {
+  stats: readonly Stat[];
+}
+
+const { stats } = Astro.props;
+---
+
+<section class="border-t border-edge">
+  <div class="max-w-5xl mx-auto px-6 py-10 grid grid-cols-2 sm:grid-cols-4 gap-6">
+    {stats.map((s, i) => (
+      <div class={`reveal reveal-delay-${i}`}>
+        <p class="text-3xl font-bold text-glow mb-1">{s.valor}</p>
+        <p class="mono text-xs text-dim">{s.label}</p>
+      </div>
+    ))}
+  </div>
+</section>

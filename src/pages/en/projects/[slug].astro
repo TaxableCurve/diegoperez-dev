@@ -13,49 +13,110 @@ const { title, summary, role, stack, client, year, demoUrl, repoUrl } = project.
 ---
 
 <Base title={`${title} — Diego Fernando Pérez`} description={summary} lang="en">
-  <div class="max-w-3xl mx-auto px-6 pt-16 pb-24">
-    <div class="mb-12">
-      <a href="/en/projects/" class="text-sm text-indigo-600 hover:underline mb-6 inline-block">← Projects</a>
-      <div class="flex flex-wrap items-center gap-2 mb-4">
-        <span class="text-xs font-medium text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded">{role}</span>
-        <span class="text-xs text-gray-500">{year}</span>
-        <span class="text-xs text-gray-500">·</span>
-        <span class="text-xs text-gray-500">{client}</span>
+
+  <!-- Project header -->
+  <section class="relative overflow-hidden border-b border-edge">
+    <div
+      class="pointer-events-none absolute inset-0 opacity-10"
+      style="background-image: radial-gradient(circle, #1e2538 1px, transparent 1px); background-size: 28px 28px;"
+    ></div>
+    <div
+      class="pointer-events-none absolute -top-32 left-1/2 -translate-x-1/2 w-[600px] h-[400px] rounded-full opacity-10"
+      style="background: radial-gradient(ellipse, #22d3ee 0%, transparent 65%);"
+    ></div>
+
+    <div class="relative max-w-4xl mx-auto px-6 pt-12 pb-14">
+      <a href="/en/projects/" class="mono text-xs text-dim hover:text-glow transition-colors mb-8 inline-block">
+        ← Projects
+      </a>
+
+      <div class="flex flex-wrap items-center gap-2 mb-5">
+        <span class="mono text-xs text-glow bg-glow/10 px-2 py-0.5 rounded">{role}</span>
+        <span class="mono text-xs text-dim">{year}</span>
+        <span class="mono text-xs text-dim">·</span>
+        <span class="mono text-xs text-dim">{client}</span>
       </div>
-      <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">{title}</h1>
-      <p class="text-lg text-gray-500">{summary}</p>
+
+      <h1 class="text-3xl sm:text-5xl font-bold text-ink mb-5 leading-tight max-w-2xl">
+        {title}
+      </h1>
+      <p class="text-base text-dim leading-relaxed max-w-xl">{summary}</p>
+    </div>
+  </section>
+
+  <div class="max-w-4xl mx-auto px-6 pb-24">
+
+    <!-- Meta grid -->
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-px bg-edge rounded-xl overflow-hidden my-10">
+      <div class="bg-surface px-5 py-4">
+        <p class="mono text-xs text-dim mb-1">Role</p>
+        <p class="text-sm font-medium text-ink">{role}</p>
+      </div>
+      <div class="bg-surface px-5 py-4">
+        <p class="mono text-xs text-dim mb-1">Year</p>
+        <p class="text-sm font-medium text-ink">{year}</p>
+      </div>
+      <div class="bg-surface px-5 py-4 col-span-2">
+        <p class="mono text-xs text-dim mb-1">Client</p>
+        <p class="text-sm font-medium text-ink">{client}</p>
+      </div>
     </div>
 
-    <div class="flex flex-wrap items-center justify-between gap-4 mb-12 pb-8 border-b border-gray-100">
+    <!-- Stack + links -->
+    <div class="flex flex-wrap items-center justify-between gap-4 mb-12 pb-10 border-b border-edge">
       <div class="flex flex-wrap gap-2">
         {stack.map((t) => (
-          <span class="text-sm text-gray-600 bg-gray-50 border border-gray-100 px-3 py-1 rounded-md">{t}</span>
+          <span class="mono text-xs text-dim bg-surface border border-edge px-3 py-1 rounded-md">{t}</span>
         ))}
       </div>
       <div class="flex gap-3">
         {demoUrl && (
-          <a href={demoUrl} target="_blank" rel="noopener" class="text-sm text-indigo-600 border border-indigo-200 px-3 py-1.5 rounded-md hover:bg-indigo-50 transition-colors">
+          <a href={demoUrl} target="_blank" rel="noopener"
+            class="mono text-xs text-glow border border-glow-dim px-3 py-1.5 rounded-md hover:bg-glow/10 transition-colors">
             Demo →
           </a>
         )}
         {repoUrl && (
-          <a href={repoUrl} target="_blank" rel="noopener" class="text-sm text-gray-600 border border-gray-200 px-3 py-1.5 rounded-md hover:bg-gray-50 transition-colors">
+          <a href={repoUrl} target="_blank" rel="noopener"
+            class="mono text-xs text-dim border border-edge px-3 py-1.5 rounded-md hover:border-glow-dim hover:text-glow transition-colors">
             Repo →
           </a>
         )}
       </div>
     </div>
 
-    <div class="prose prose-gray max-w-none
-      prose-h2:text-xl prose-h2:font-bold prose-h2:text-gray-900 prose-h2:mt-10 prose-h2:mb-4
-      prose-p:text-gray-600 prose-p:leading-relaxed
-      prose-li:text-gray-600
-      prose-strong:text-gray-900">
+    <!-- Content -->
+    <div class="prose max-w-none
+      prose-invert
+      prose-headings:font-bold prose-headings:text-ink
+      prose-h2:text-lg prose-h2:mt-12 prose-h2:mb-4
+      prose-h2:border-l-2 prose-h2:border-glow prose-h2:pl-3
+      prose-p:text-dim prose-p:leading-relaxed
+      prose-li:text-dim prose-ul:space-y-1
+      prose-strong:text-ink
+      prose-a:text-glow prose-a:no-underline hover:prose-a:underline
+      prose-code:text-glow prose-code:bg-surface prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-xs prose-code:before:content-none prose-code:after:content-none
+      prose-hr:border-edge">
       <Content />
     </div>
 
-    <div class="mt-16 pt-8 border-t border-gray-100">
-      <a href="/en/projects/" class="text-sm text-indigo-600 hover:underline">← Back to projects</a>
+    <!-- CTA final -->
+    <div class="mt-16 pt-10 border-t border-edge flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+      <div>
+        <p class="mono text-xs text-glow mb-1">// Interested in this kind of work?</p>
+        <p class="text-dim text-sm">I can apply the same approach to your project.</p>
+      </div>
+      <div class="flex gap-3 shrink-0">
+        <a href="/en/contact/"
+          class="px-4 py-2 bg-glow text-canvas font-semibold rounded-lg hover:brightness-110 transition-all text-sm">
+          Let's talk
+        </a>
+        <a href="/en/projects/"
+          class="px-4 py-2 border border-edge text-dim rounded-lg hover:border-glow-dim hover:text-ink transition-all text-sm">
+          More projects
+        </a>
+      </div>
     </div>
+
   </div>
 </Base>

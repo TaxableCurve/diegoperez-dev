@@ -1,0 +1,43 @@
+---
+interface Props {
+  title: string;
+  summary: string;
+  role: string;
+  year: number | string;
+  stack: string[];
+  href: string;
+  index: number;
+  client?: string;
+  showClient?: boolean;
+}
+
+const { title, summary, role, year, stack, href, index, client, showClient = false } = Astro.props;
+const delay = index % 3;
+---
+
+<a
+  href={href}
+  class={`reveal reveal-delay-${delay} group relative flex flex-col p-5 bg-surface border border-edge rounded-xl hover:border-glow-dim transition-all duration-200 overflow-hidden`}
+>
+  <!-- Número decorativo -->
+  <span class="mono absolute bottom-3 right-4 text-5xl font-bold text-ink/5 select-none leading-none">
+    {String(index + 1).padStart(2, '0')}
+  </span>
+
+  <div class="flex items-center gap-2 mb-3">
+    <span class="mono text-xs text-glow bg-glow/10 px-2 py-0.5 rounded">{role}</span>
+    <span class="mono text-xs text-dim">{year}</span>
+    {showClient && client && <span class="mono text-xs text-dim ml-auto">{client}</span>}
+  </div>
+
+  <h2 class="font-semibold text-ink mb-2 group-hover:text-glow transition-colors leading-snug">
+    {title}
+  </h2>
+  <p class="text-sm text-dim leading-relaxed flex-1">{summary}</p>
+
+  <div class="flex flex-wrap gap-1.5 mt-4">
+    {stack.map((t) => (
+      <span class="mono text-xs text-dim bg-surface2 border border-edge px-2 py-0.5 rounded">{t}</span>
+    ))}
+  </div>
+</a>

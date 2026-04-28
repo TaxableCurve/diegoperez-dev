@@ -1,100 +1,76 @@
 ---
 import Base from '@/layouts/Base.astro';
 import { getCollection } from 'astro:content';
+import { useTranslations } from '@/i18n';
+import Hero from '@/components/Hero.astro';
+import StatGrid from '@/components/StatGrid.astro';
+import ProjectCard from '@/components/ProjectCard.astro';
 
-const proyectos = await getCollection('proyectos', ({ data }) =>
-  data.featured && !data.draft
-);
+const t = useTranslations('es');
+
+const proyectos = await getCollection('proyectos', ({ data }) => data.featured && !data.draft);
 proyectos.sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99));
-
-const stack = {
-  Frontend: ['Angular', 'Flutter', 'Tailwind CSS', 'TypeScript'],
-  Backend: ['Node.js', 'Spring Boot', 'Golang'],
-  'Base de datos': ['PostgreSQL', 'MongoDB', 'Firebase'],
-  DevOps: ['Cloudflare Pages', 'GitHub Actions', 'Docker'],
-};
 ---
 
 <Base
   title="Diego Fernando Pérez — Desarrollador Full-Stack"
   description="Portafolio de Diego Fernando Pérez, desarrollador full-stack con experiencia en frontend, backend y bases de datos."
 >
-  <!-- Hero -->
-  <section class="max-w-5xl mx-auto px-6 pt-24 pb-16">
-    <p class="text-indigo-600 font-medium mb-3">Hola, soy Diego</p>
-    <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 leading-tight mb-6">
-      Desarrollador full-stack<br />que resuelve problemas reales.
-    </h1>
-    <p class="text-lg text-gray-600 max-w-2xl mb-8">
-      6 años construyendo software en producción me enseñaron que los mejores ingenieros no se especializan
-      en una tecnología — se especializan en resolver problemas. He trabajado en frontend, backend y arquitectura
-      cloud porque cada proyecto lo exigía distinto, y esa experiencia acumulada es lo que me permite tomar
-      buenas decisiones técnicas sin importar la capa. Desde una app móvil publicada como investigación académica
-      hasta arquitecturas serverless en Go en producción.
-    </p>
-    <div class="flex flex-wrap gap-3">
-      <a href="/proyectos/" class="px-5 py-2.5 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700 transition-colors">
-        Ver proyectos
-      </a>
-      <a href="/contacto/" class="px-5 py-2.5 border border-gray-200 text-gray-700 rounded-lg font-medium hover:bg-gray-50 transition-colors">
-        Contactarme
-      </a>
-    </div>
-  </section>
+  <Hero {...t.hero} />
+  <StatGrid stats={t.stats} />
 
   <!-- Quién soy -->
-  <section class="max-w-5xl mx-auto px-6 py-10 sm:py-16 border-t border-gray-100">
-    <h2 class="text-2xl font-bold text-gray-900 mb-4">Quién soy</h2>
-    <p class="text-gray-600 max-w-2xl leading-relaxed">
-      Me mueve aprender. Lo que más disfruto del trabajo es cuando un proyecto que parecía sencillo
-      se convierte en un reto real — ese momento en que tienes que investigar, adaptarte y salir con
-      algo que no sabías hacer antes. En 6 años eso ha pasado más veces de las que puedo contar,
-      y es la razón por la que hoy trabajo en Go habiendo empezado en JavaScript.
+  <section class="max-w-5xl mx-auto px-6 py-14 border-t border-edge reveal">
+    <p class="mono text-xs text-glow mb-3">{t.home.about.label}</p>
+    <h2 class="text-2xl font-bold text-ink mb-5">{t.home.about.heading}</h2>
+    <p class="text-dim max-w-2xl leading-relaxed">
+      Me entretengo en el frontend y vivo el backend. Lo que más disfruto del trabajo es cuando
+      un proyecto que parecía sencillo se convierte en un reto real — ese momento en que tienes
+      que investigar, adaptarte y salir con algo que no sabías hacer antes. En 6 años eso ha pasado
+      más veces de las que puedo contar, y es la razón por la que hoy escribo Go habiendo empezado en JavaScript.
     </p>
   </section>
 
   <!-- Proyectos destacados -->
-  <section class="max-w-5xl mx-auto px-6 py-10 sm:py-16 border-t border-gray-100">
-    <div class="flex items-center justify-between mb-8">
-      <h2 class="text-2xl font-bold text-gray-900">Proyectos destacados</h2>
-      <a href="/proyectos/" class="text-sm text-indigo-600 hover:underline">Ver todos →</a>
+  <section class="max-w-5xl mx-auto px-6 py-14 border-t border-edge">
+    <div class="flex items-end justify-between mb-8 reveal">
+      <div>
+        <p class="mono text-xs text-glow mb-3">{t.home.projects.label}</p>
+        <h2 class="text-2xl font-bold text-ink">{t.home.projects.heading}</h2>
+      </div>
+      <a href={t.hero.projectsHref} class="mono text-xs text-dim hover:text-glow transition-colors">
+        {t.home.projects.viewAll}
+      </a>
     </div>
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      {proyectos.map((p) => (
-        <a
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      {proyectos.map((p, i) => (
+        <ProjectCard
+          title={p.data.title}
+          summary={p.data.summary}
+          role={p.data.role}
+          year={p.data.year}
+          stack={p.data.stack.slice(0, 3)}
           href={`/proyectos/${p.id}/`}
-          class="group flex flex-col p-6 border border-gray-100 rounded-xl hover:border-indigo-200 hover:shadow-sm transition-all"
-        >
-          <div class="flex items-center gap-2 mb-3">
-            <span class="text-xs font-medium text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded">
-              {p.data.role}
-            </span>
-            <span class="text-xs text-gray-500">{p.data.year}</span>
-          </div>
-          <h3 class="font-semibold text-gray-900 mb-2 group-hover:text-indigo-600 transition-colors">
-            {p.data.title}
-          </h3>
-          <p class="text-sm text-gray-500 leading-relaxed flex-1">{p.data.summary}</p>
-          <div class="flex flex-wrap gap-1.5 mt-4">
-            {p.data.stack.slice(0, 3).map((t) => (
-              <span class="text-xs text-gray-500 bg-gray-50 px-2 py-0.5 rounded">{t}</span>
-            ))}
-          </div>
-        </a>
+          index={i}
+        />
       ))}
     </div>
   </section>
 
   <!-- Stack -->
-  <section class="max-w-5xl mx-auto px-6 py-10 sm:py-16 border-t border-gray-100">
-    <h2 class="text-2xl font-bold text-gray-900 mb-8">Stack</h2>
+  <section class="max-w-5xl mx-auto px-6 py-14 border-t border-edge reveal">
+    <p class="mono text-xs text-glow mb-3">{t.home.stack.label}</p>
+    <h2 class="text-2xl font-bold text-ink mb-10">{t.home.stack.heading}</h2>
     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-      {Object.entries(stack).map(([area, techs]) => (
+      {Object.entries(t.stack).map(([area, techs]) => (
         <div>
-          <h3 class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">{area}</h3>
-          <ul class="space-y-1.5">
-            {techs.map((t) => (
-              <li class="text-sm text-gray-700">{t}</li>
+          <h3 class="mono text-xs text-glow uppercase tracking-widest mb-4">{area}</h3>
+          <ul class="space-y-2">
+            {techs.map((tech) => (
+              <li class="flex items-center gap-2 text-sm text-dim">
+                <span class="w-1 h-1 rounded-full bg-glow-dim shrink-0"></span>
+                {tech}
+              </li>
             ))}
           </ul>
         </div>
@@ -103,13 +79,12 @@ const stack = {
   </section>
 
   <!-- Contacto rápido -->
-  <section class="max-w-5xl mx-auto px-6 py-10 sm:py-16 border-t border-gray-100">
-    <h2 class="text-2xl font-bold text-gray-900 mb-4">¿Hablamos?</h2>
-    <p class="text-gray-600 mb-6">
-      Abierto a oportunidades de trabajo remoto, consultoría y proyectos freelance.
-    </p>
-    <a href="/contacto/" class="px-5 py-2.5 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700 transition-colors inline-block">
-      Ir a contacto
+  <section class="max-w-5xl mx-auto px-6 py-14 border-t border-edge reveal">
+    <p class="mono text-xs text-glow mb-3">{t.home.contact.label}</p>
+    <h2 class="text-2xl font-bold text-ink mb-4">{t.home.contact.heading}</h2>
+    <p class="text-dim mb-8 max-w-lg leading-relaxed">{t.home.contact.description}</p>
+    <a href={t.hero.contactHref} class="px-5 py-2.5 bg-glow text-canvas font-semibold rounded-lg hover:brightness-110 transition-all text-sm inline-block">
+      {t.home.contact.cta}
     </a>
   </section>
 </Base>
