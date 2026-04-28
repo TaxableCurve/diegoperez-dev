@@ -1,13 +1,20 @@
 # Stack técnico
 
-## Framework: Astro 5
+## Framework: Astro 6
 - **Por qué**: SSG por defecto = build súper rápido, HTML mínimo, SEO impecable.
 - **Content Collections** para proyectos y blog en Markdown/MDX con tipado.
-- **Islands architecture**: JS solo donde se necesita (form de contacto, theme toggle).
+- **Islands architecture**: JS solo donde se necesita (scroll reveal, menú móvil).
 
 ## Estilos: Tailwind CSS v4
 - Utility-first, sin CSS suelto.
-- Tokens de diseño (colores, espaciado, tipografía) en `tailwind.config` o CSS vars.
+- Tokens de diseño definidos en `@theme` dentro de `src/styles/global.css`.
+- Paleta: fondo `#0c0f14`, superficie `#131720`, acento cyan `#22d3ee`, texto `#dce4f0`.
+- Tipografía: Outfit (body) + JetBrains Mono (labels técnicos) vía Google Fonts.
+
+## Internacionalización
+- `src/i18n.ts` centraliza todos los textos ES/EN como objeto `ui` tipado.
+- `useTranslations(lang)` retorna el objeto del idioma activo.
+- Rutas: ES sin prefijo, EN bajo `/en/`.
 
 ## Internacionalización
 - Astro i18n nativo (built-in desde v4).

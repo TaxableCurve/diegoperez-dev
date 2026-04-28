@@ -26,28 +26,42 @@
 - [x] Resumen profesional definitivo.
 - [x] Fix: selector de idioma con mapa de rutas ES ↔ EN.
 
-## v0.4 — Pulido y deploy ✓ (parcial)
+## v0.4 — Pulido y deploy ✓
 - [x] SEO: sitemap, robots.txt, meta tags, canonical.
-- [x] OG image oscura con nombre, stack y URL.
-- [x] Lighthouse 95+ en todas las categorías. (100/100/100/100)
+- [x] Lighthouse 100/100/100/100 desktop, 98 mobile.
 - [x] Deploy a Cloudflare Pages → `diegoperez-dev.pages.dev`
 - [ ] Conectar dominio `diegoperez.dev` (pendiente compra).
 - [ ] Verificar en Google Search Console (pendiente dominio).
 
-## Ajustes de contenido aplicados
-- [x] Sección "Quién soy" diferenciada del Hero — enfoque en aprendizaje y retos.
-- [x] Bio "Sobre mí" reescrita con narrativa coherente (6 años, trayectoria, tesis).
-- [x] Proyecto agrícola: "caficultores" → "agricultores".
-- [x] Proyecto navegación: "cuando el GPS falla" → "sin depender de señal GPS".
+## v0.5 — Rediseño visual ✓
+- [x] Tema oscuro completo (fondo `#0c0f14`, acento cyan `#22d3ee`).
+- [x] Tipografía Outfit + JetBrains Mono.
+- [x] Contraste de texto corregido (accessibility 100).
+- [x] Hero full-width con dot grid, glow centrado y animaciones fade-up.
+- [x] Badge "Abierto a oportunidades" + links GitHub/LinkedIn en hero.
+- [x] Sección de stats (6+, 5, 3, 1) en home y sobre-mí.
+- [x] Animaciones reveal al scroll con IntersectionObserver.
+- [x] Números decorativos en tarjetas de proyectos.
+- [x] Headers con dot grid y glow en todas las páginas internas.
+- [x] Slug de proyectos: meta grid, borde cyan en h2, CTA final.
+- [x] Componentes reutilizables: Hero, ProjectCard, StatGrid.
+- [x] Sistema i18n centralizado en `src/i18n.ts`.
+- [x] Textos actualizados: perfil honesto con Angular, NestJS y Go.
 
 ## v1.0 — Lanzamiento
 - [x] 3 casos de estudio revisados y publicados.
-- [ ] Anuncio en LinkedIn / Twitter (pendiente decisión).
+- [x] Rediseño visual completo desplegado en producción.
+- [ ] OG image real (nombre, stack, fondo oscuro).
+- [ ] Foto personal en página sobre-mí.
+- [ ] CV descargable en página de contacto.
+- [ ] Métricas concretas en casos de estudio (números, volumen, tiempo).
+- [ ] Anuncio en LinkedIn.
 - [ ] Añadir link en GitHub profile y firma de email.
+- [ ] Conectar dominio `diegoperez.dev`.
 
 ## v1.1+ (futuro)
+- [ ] Referencia a Claude en footer o página about.
 - [ ] Blog con MDX.
 - [ ] Form de contacto con backend (Cloudflare Workers + Turnstile).
-- [ ] Analítica.
+- [ ] Analítica (Cloudflare Web Analytics — gratis, sin cookies).
 - [ ] RSS feed.
-- [ ] Modo oscuro refinado.

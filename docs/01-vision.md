@@ -8,10 +8,16 @@ Sitio web personal que funcione como **prueba de competencia técnica** y carta 
 2. **Clientes potenciales** (freelance / consultoría) — buscan a alguien que resuelva problemas concretos.
 3. **Comunidad dev** (peers, autores de contenido técnico) — refuerzan autoridad y red de contactos.
 
+## Perfil técnico actual
+- **Frontend**: Angular (principal), algo de React. Disfruta el frontend.
+- **Backend**: NestJS / Node.js (preferencia actual), Go (servicios y AWS Lambdas). El backend es el pan de cada día.
+- **Spring Boot**: parte de la historia, no del presente.
+- **Cloud**: usa AWS (Lambdas, API Gateway) en producción — no se presenta como arquitecto cloud.
+
 ## Diferenciador
 La mayoría de portafolios de full-stack listan tecnologías sin contexto. Este se enfoca en:
 - **Casos de estudio reales** con problema → decisión → resultado.
-- **Perfil rotativo** como ventaja: experiencia tangible en front, back y DB, no superficial.
+- **Perfil honesto**: disfruta el frontend, vive el backend — sin inflar habilidades.
 - **Bilingüe ES/EN** para abrir el mercado LATAM + remoto internacional.
 
 ## Tono
