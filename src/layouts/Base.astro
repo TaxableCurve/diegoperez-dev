@@ -19,7 +19,8 @@ const {
 
 const currentPath = Astro.url.pathname;
 const canonicalURL = new URL(currentPath, 'https://diegoperez.co');
-const ogImageURL = new URL(ogImage, Astro.url.origin);
+const siteURL = 'https://diegoperez-dev.pages.dev'; // O diegoperez.co si ya está activo
+const ogImageURL = new URL(ogImage, siteURL).toString();
 ---
 
 <!doctype html>
