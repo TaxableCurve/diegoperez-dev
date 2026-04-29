@@ -1,7 +1,10 @@
 {
   "name": "diegoperez-dev",
+  "description": "Portafolio personal de Diego Fernando Pérez C. — desarrollador full-stack.",
+  "version": "1.0.0",
+  "author": "Diego Fernando Pérez C.",
+  "license": "MIT",
   "type": "module",
-  "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
