@@ -52,9 +52,12 @@
 - [x] 3 casos de estudio revisados y publicados.
 - [x] Rediseño visual completo desplegado en producción.
 - [x] OG image real (nombre, stack, fondo oscuro, tagline en `#dce4f0` + acento cyan).
+- [x] CV descargable en página de contacto (generado con Puppeteer, `pnpm gen:cv`).
+- [x] Métricas concretas en casos de estudio (descargas, tiempos, escala).
+- [x] Artículo académico destacado en sobre-mí y caso de estudio con link directo.
+- [x] Nombre completo `Diego Fernando Pérez C.` en todo el sitio.
+- [x] Favicon actualizado a iniciales `DP` en paleta del sitio.
 - [ ] Foto personal en página sobre-mí.
-- [ ] CV descargable en página de contacto.
-- [ ] Métricas concretas en casos de estudio (números, volumen, tiempo).
 - [ ] Anuncio en LinkedIn.
 - [ ] Añadir link en GitHub profile y firma de email.
 - [ ] Conectar dominio `diegoperez.co`.
