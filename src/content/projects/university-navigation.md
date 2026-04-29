@@ -34,6 +34,8 @@ Google Maps SDK handles the outdoor campus map; a custom layer built with vector
 
 Fully functional app, presented and approved as a thesis project. Covers all academic buildings, common areas and meeting points on campus. Available on Android and iOS — over 5,000 downloads across both platforms.
 
+The thesis was published as an academic paper in the international journal *International Journal of Interactive Mobile Technologies (iJIM)*: [Development and Impact of a Mobile Application that Allows Users to Track Their Location on an Educational Institution Campus](https://online-journals.org/index.php/i-jim/article/view/42905).
+
 ## Lessons learned
 
 Manual route mapping is the real bottleneck: any change in physical infrastructure requires updating the graph. In a production version I would add an admin panel so campus staff can update routes without touching code.

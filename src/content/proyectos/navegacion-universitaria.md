@@ -34,6 +34,8 @@ Google Maps SDK se usó para el mapa exterior del campus; para el interior se co
 
 Aplicación funcional presentada y aprobada como tesis de grado. Cubre todos los edificios académicos, áreas comunes y puntos de encuentro del campus. Disponible en Android e iOS — más de 5.000 descargas entre ambas plataformas.
 
+La tesis fue publicada como artículo académico en la revista internacional *International Journal of Interactive Mobile Technologies (iJIM)*: [Development and Impact of a Mobile Application that Allows Users to Track Their Location on an Educational Institution Campus](https://online-journals.org/index.php/i-jim/article/view/42905).
+
 ## Aprendizajes
 
 El mapeo manual de rutas es el cuello de botella real: cualquier cambio en la infraestructura física requiere actualizar el grafo. En una versión productiva añadiría un panel de administración para que el personal del campus actualice rutas sin tocar código.
