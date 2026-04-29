@@ -1,6 +1,6 @@
 ---
 title: "Agricultural insurance claims automation"
-summary: "System that replaced a fully manual collective policy analysis process for agricultural workers with an automated pipeline."
+summary: "System that cut collective policy settlement time from up to a week down to a day for agricultural cooperatives across Colombia."
 role: "Full-stack"
 stack: ["Angular", "Spring Boot", "PostgreSQL"]
 client: "Agroindustrial sector client"
@@ -33,7 +33,7 @@ The most important decision was designing the flow around the existing Excel fil
 
 ## Result
 
-A process that previously took hours of manual work now runs in minutes. Transcription errors were eliminated and every decision is recorded with its justification, simplifying internal audits.
+A process that previously took up to a week now completes in a day — and often in just a few hours. Each file represented a cooperative with dozens to hundreds of farmers. Transcription errors were eliminated and every decision is recorded with its justification, simplifying internal audits.
 
 ## Lessons learned
 

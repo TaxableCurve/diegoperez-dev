@@ -34,7 +34,7 @@ Angular with RxJS on the frontend to consume the Firebase stream reactively, wit
 
 ## Result
 
-The platform ran alongside the deployment of approximately 100 units at companies, universities, hotels, and financial institutions across Colombia. The offline sync system ensured no records were lost at sites with unreliable connectivity.
+The platform ran alongside the deployment of approximately 100 units at companies, universities, hotels, and financial institutions across Colombia. Some clients operated multiple simultaneous machines for workforces of over 100 employees; others ran a single unit through which 50 or more people passed each day. The offline sync system ensured no records were lost at sites with unreliable connectivity.
 
 ## Lessons learned
 

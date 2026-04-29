@@ -1,6 +1,6 @@
 ---
 title: "Automatización de indemnizaciones agrícolas"
-summary: "Sistema que reemplazó un proceso 100% manual de análisis de pólizas colectivas para agricultores por un flujo automatizado."
+summary: "Sistema que redujo de una semana a un día el proceso manual de liquidación de pólizas colectivas para cooperativas agrícolas."
 role: "Full-stack"
 stack: ["Angular", "Spring Boot", "PostgreSQL"]
 client: "Cliente del sector agroindustrial"
@@ -33,7 +33,7 @@ La decisión más importante fue diseñar el flujo alrededor del Excel existente
 
 ## Resultado
 
-El proceso que antes tomaba horas de trabajo manual pasó a ejecutarse en minutos. Se eliminaron los errores de transcripción y cada decisión quedó registrada con su justificación, lo que facilitó las auditorías internas.
+El proceso que antes podía tomar hasta una semana pasó a completarse en un día, y en muchos casos en horas. Cada archivo correspondía a una cooperativa con decenas o cientos de agricultores. Se eliminaron los errores de transcripción y cada decisión quedó registrada con su justificación, lo que facilitó las auditorías internas.
 
 ## Aprendizajes
 

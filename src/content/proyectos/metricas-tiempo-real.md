@@ -34,7 +34,7 @@ Angular con RxJS en el frontend para consumir el stream de Firebase reactivament
 
 ## Resultado
 
-La plataforma operó en paralelo al despliegue de aproximadamente 100 unidades en empresas, universidades, hoteles y entidades financieras de Colombia. El sistema de sincronización offline garantizó que no se perdieran registros en instalaciones con conectividad irregular.
+La plataforma operó en paralelo al despliegue de aproximadamente 100 unidades en empresas, universidades, hoteles y entidades financieras de Colombia. Algunos clientes operaban varias máquinas simultáneas para flujos de más de 100 empleados; otros instalaban una sola unidad por la que pasaban 50 o más personas al día. El sistema de sincronización offline garantizó que no se perdieran registros en instalaciones con conectividad irregular.
 
 ## Aprendizajes
 

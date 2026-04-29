@@ -1,6 +1,6 @@
 ---
 title: "Indoor navigation for a university campus"
-summary: "Mobile app with static routes and 360° images to navigate inside campus buildings without relying on GPS signal."
+summary: "Mobile app with static routes and 360° images to navigate campus buildings without GPS. 5,000+ downloads across Android and iOS."
 role: "Mobile"
 stack: ["Flutter", "Google Maps SDK", "Dart"]
 client: "University"
@@ -32,7 +32,7 @@ Google Maps SDK handles the outdoor campus map; a custom layer built with vector
 
 ## Result
 
-Fully functional app, presented and approved as a thesis project. Covers all academic buildings, common areas and meeting points on campus.
+Fully functional app, presented and approved as a thesis project. Covers all academic buildings, common areas and meeting points on campus. Available on Android and iOS — over 5,000 downloads across both platforms.
 
 ## Lessons learned
 
