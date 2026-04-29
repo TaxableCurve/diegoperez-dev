@@ -10,8 +10,8 @@ const experiencia = [
     rol: 'Senior Back-end Developer',
     empresa: 'Dropi',
     periodo: 'Abril 2025 — presente',
-    descripcion: 'Diseño y mantenimiento de servicios back-end de alto rendimiento. Arquitecturas serverless con AWS Lambdas en Go. Principios SOLID y control de versiones de BD con Liquibase.',
-    stack: ['Go', 'Laravel', 'AWS Lambdas', 'Docker', 'Liquibase'],
+    descripcion: 'Desarrollo y mantenimiento de servicios back-end en Go y Laravel. BFF con NestJS, base de datos PostgreSQL. Participación en integraciones con plataformas externas (Shopify, Tienda Nube) y desarrollo full-stack puntual en Angular y React según el proyecto.',
+    stack: ['Go', 'Laravel', 'NestJS', 'PostgreSQL', 'Angular', 'React', 'AWS'],
   },
   {
     rol: 'Software Engineer',
@@ -83,7 +83,7 @@ const experiencia = [
       <div class="space-y-4 text-dim leading-relaxed">
         <p>
           Empecé con el stack MEAN, pasé por microfrontends en Angular con APIs en Spring Boot,
-          integré sistemas legales con NestJS y hoy trabajo servicios en Go con AWS Lambdas.
+          integré sistemas legales con NestJS y hoy desarrollo servicios en Go.
           El frontend siempre me ha entretenido — hay algo satisfactorio en ver el resultado
           inmediato — pero el backend es donde paso la mayor parte del tiempo y donde más cómodo me siento.
         </p>
@@ -110,9 +110,10 @@ const experiencia = [
               <div class="w-3.5 h-3.5 rounded-full border-2 border-glow bg-canvas"></div>
             </div>
             <div>
-              <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1 mb-1">
+              <div class="flex flex-wrap items-baseline gap-x-2 gap-y-1 mb-1">
                 <h3 class="font-semibold text-ink">{e.rol}</h3>
-                <span class="text-sm text-dim">{e.empresa}</span>
+                <span class="text-dim">·</span>
+                <span class="text-sm text-glow font-medium">{e.empresa}</span>
               </div>
               <p class="mono text-xs text-glow mb-3">{e.periodo}</p>
               <p class="text-sm text-dim leading-relaxed mb-3">{e.descripcion}</p>
@@ -132,7 +133,8 @@ const experiencia = [
       <p class="mono text-xs text-glow mb-3">{t.aboutPage.education.label}</p>
       <h2 class="text-xl font-bold text-ink mb-8">{t.aboutPage.education.heading}</h2>
       <div class="relative flex gap-6">
-        <div class="mt-1 shrink-0">
+        <div class="absolute left-[7px] top-2 bottom-2 w-px bg-edge"></div>
+        <div class="mt-1 shrink-0 z-10">
           <div class="w-3.5 h-3.5 rounded-full border-2 border-glow bg-canvas"></div>
         </div>
         <div>
@@ -149,13 +151,16 @@ const experiencia = [
     </section>
 
     <!-- CTA -->
-    <div class="pt-14 flex flex-wrap gap-3 reveal">
-      <a href="/proyectos/" class="px-5 py-2.5 bg-glow text-canvas font-semibold rounded-lg hover:brightness-110 transition-all text-sm">
-        {t.aboutPage.ctaProjects}
-      </a>
-      <a href="/contacto/" class="px-5 py-2.5 border border-edge text-dim rounded-lg font-medium hover:border-glow-dim hover:text-ink transition-all text-sm">
-        {t.aboutPage.ctaContact}
-      </a>
+    <div class="pt-14 reveal">
+      <p class="text-sm text-dim mb-4">¿Quieres trabajar juntos o simplemente conocer más?</p>
+      <div class="flex flex-wrap gap-3">
+        <a href="/proyectos/" class="px-5 py-2.5 bg-glow text-canvas font-semibold rounded-lg hover:brightness-110 transition-all text-sm">
+          {t.aboutPage.ctaProjects}
+        </a>
+        <a href="/contacto/" class="px-5 py-2.5 border border-edge text-dim rounded-lg font-medium hover:border-glow-dim hover:text-ink transition-all text-sm">
+          {t.aboutPage.ctaContact}
+        </a>
+      </div>
     </div>
 
   </div>

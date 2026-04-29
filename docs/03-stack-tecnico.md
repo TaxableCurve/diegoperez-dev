@@ -9,6 +9,8 @@
 - Utility-first, sin CSS suelto.
 - Tokens de diseño definidos en `@theme` dentro de `src/styles/global.css`.
 - Paleta: fondo `#0c0f14`, superficie `#131720`, acento cyan `#22d3ee`, texto `#dce4f0`.
+- Texto secundario: usar `#dce4f0` con menor peso visual (opacity o font-weight), no gris `#8a9bb5` — insuficiente contraste sobre fondo oscuro.
+- OG image (`public/og-default.svg/.png`): misma paleta. Tagline usa `#dce4f0` para texto base y `#22d3ee` para palabras clave. Regenerar con `node scripts/generate-og.mjs` tras cualquier cambio.
 - Tipografía: Outfit (body) + JetBrains Mono (labels técnicos) vía Google Fonts.
 
 ## Internacionalización

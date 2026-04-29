@@ -27,12 +27,14 @@ const delay = index % 3;
   <div class="flex items-center gap-2 mb-3">
     <span class="mono text-xs text-glow bg-glow/10 px-2 py-0.5 rounded">{role}</span>
     <span class="mono text-xs text-dim">{year}</span>
-    {showClient && client && <span class="mono text-xs text-dim ml-auto">{client}</span>}
   </div>
 
-  <h2 class="font-semibold text-ink mb-2 group-hover:text-glow transition-colors leading-snug">
+  <h2 class="font-semibold text-ink mb-1 group-hover:text-glow transition-colors leading-snug">
     {title}
   </h2>
+  {showClient && client && (
+    <p class="mono text-xs text-dim mb-2">{client}</p>
+  )}
   <p class="text-sm text-dim leading-relaxed flex-1">{summary}</p>
 
   <div class="flex flex-wrap gap-1.5 mt-4">

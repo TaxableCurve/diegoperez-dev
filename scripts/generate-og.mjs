@@ -37,8 +37,8 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" v
     font-size="62" font-weight="700" fill="#dce4f0" letter-spacing="-1">Diego Fernando Perez</text>
 
   <!-- Tagline -->
-  <text x="80" y="298" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="400" xml:space="preserve"><tspan fill="#8a9bb5">Disfruto el </tspan><tspan fill="#22d3ee">frontend</tspan><tspan fill="#8a9bb5">.</tspan></text>
-  <text x="80" y="332" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="400" xml:space="preserve"><tspan fill="#8a9bb5">Vivo el </tspan><tspan fill="#22d3ee">backend</tspan><tspan fill="#8a9bb5">.</tspan></text>
+  <text x="80" y="298" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="400" xml:space="preserve"><tspan fill="#dce4f0">Disfruto el </tspan><tspan fill="#22d3ee">frontend</tspan><tspan fill="#dce4f0">.</tspan></text>
+  <text x="80" y="332" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="400" xml:space="preserve"><tspan fill="#dce4f0">Vivo el </tspan><tspan fill="#22d3ee">backend</tspan><tspan fill="#dce4f0">.</tspan></text>
 
   <!-- Separador -->
   <rect x="80" y="368" width="420" height="1" fill="#1e2535"/>

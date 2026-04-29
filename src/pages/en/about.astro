@@ -10,8 +10,8 @@ const experience = [
     role: 'Senior Back-end Developer',
     company: 'Dropi',
     period: 'April 2025 — present',
-    description: 'Design and maintenance of high-performance back-end services. Serverless architectures with AWS Lambdas in Go. SOLID principles and DB version control with Liquibase.',
-    stack: ['Go', 'Laravel', 'AWS Lambdas', 'Docker', 'Liquibase'],
+    description: 'Development and maintenance of back-end services in Go and Laravel. BFF with NestJS, PostgreSQL database. Involved in integrations with external platforms (Shopify, Tienda Nube) and occasional full-stack work in Angular and React as needed.',
+    stack: ['Go', 'Laravel', 'NestJS', 'PostgreSQL', 'Angular', 'React', 'AWS'],
   },
   {
     role: 'Software Engineer',
@@ -84,7 +84,7 @@ const experience = [
       <div class="space-y-4 text-dim leading-relaxed">
         <p>
           I started with the MEAN stack, moved through Angular microfrontends with Spring Boot APIs,
-          integrated legal systems with NestJS, and today I build Go services with AWS Lambdas.
+          integrated legal systems with NestJS, and today I build Go services.
           Frontend has always kept me engaged — there's something satisfying about seeing the result
           immediately — but backend is where I spend most of my time and feel most at home.
         </p>
@@ -112,9 +112,10 @@ const experience = [
               <div class="w-3.5 h-3.5 rounded-full border-2 border-glow bg-canvas"></div>
             </div>
             <div>
-              <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1 mb-1">
+              <div class="flex flex-wrap items-baseline gap-x-2 gap-y-1 mb-1">
                 <h3 class="font-semibold text-ink">{e.role}</h3>
-                <span class="text-sm text-dim">{e.company}</span>
+                <span class="text-dim">·</span>
+                <span class="text-sm text-glow font-medium">{e.company}</span>
               </div>
               <p class="mono text-xs text-glow mb-3">{e.period}</p>
               <p class="text-sm text-dim leading-relaxed mb-3">{e.description}</p>
@@ -134,7 +135,8 @@ const experience = [
       <p class="mono text-xs text-glow mb-3">{t.aboutPage.education.label}</p>
       <h2 class="text-xl font-bold text-ink mb-8">{t.aboutPage.education.heading}</h2>
       <div class="relative flex gap-6">
-        <div class="mt-1 shrink-0">
+        <div class="absolute left-[7px] top-2 bottom-2 w-px bg-edge"></div>
+        <div class="mt-1 shrink-0 z-10">
           <div class="w-3.5 h-3.5 rounded-full border-2 border-glow bg-canvas"></div>
         </div>
         <div>
@@ -151,13 +153,16 @@ const experience = [
     </section>
 
     <!-- CTA -->
-    <div class="pt-14 flex flex-wrap gap-3 reveal">
-      <a href="/en/projects/" class="px-5 py-2.5 bg-glow text-canvas font-semibold rounded-lg hover:brightness-110 transition-all text-sm">
-        {t.aboutPage.ctaProjects}
-      </a>
-      <a href="/en/contact/" class="px-5 py-2.5 border border-edge text-dim rounded-lg font-medium hover:border-glow-dim hover:text-ink transition-all text-sm">
-        {t.aboutPage.ctaContact}
-      </a>
+    <div class="pt-14 reveal">
+      <p class="text-sm text-dim mb-4">Want to work together or just learn more?</p>
+      <div class="flex flex-wrap gap-3">
+        <a href="/en/projects/" class="px-5 py-2.5 bg-glow text-canvas font-semibold rounded-lg hover:brightness-110 transition-all text-sm">
+          {t.aboutPage.ctaProjects}
+        </a>
+        <a href="/en/contact/" class="px-5 py-2.5 border border-edge text-dim rounded-lg font-medium hover:border-glow-dim hover:text-ink transition-all text-sm">
+          {t.aboutPage.ctaContact}
+        </a>
+      </div>
     </div>
 
   </div>

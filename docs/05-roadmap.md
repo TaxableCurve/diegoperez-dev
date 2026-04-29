@@ -51,7 +51,7 @@
 ## v1.0 — Lanzamiento
 - [x] 3 casos de estudio revisados y publicados.
 - [x] Rediseño visual completo desplegado en producción.
-- [ ] OG image real (nombre, stack, fondo oscuro).
+- [x] OG image real (nombre, stack, fondo oscuro, tagline en `#dce4f0` + acento cyan).
 - [ ] Foto personal en página sobre-mí.
 - [ ] CV descargable en página de contacto.
 - [ ] Métricas concretas en casos de estudio (números, volumen, tiempo).
