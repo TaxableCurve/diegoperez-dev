@@ -43,7 +43,7 @@ export const ui = {
     },
     aboutPage: {
       label:       '// Sobre mí',
-      heading:     'Diego Fernando Pérez',
+      heading:     'Diego Fernando Pérez C.',
       experience:  { label: '// 01', heading: 'Experiencia' },
       education:   { label: '// 02', heading: 'Formación' },
       ctaProjects: 'Ver proyectos',
@@ -98,7 +98,7 @@ export const ui = {
     },
     aboutPage: {
       label:       '// About me',
-      heading:     'Diego Fernando Pérez',
+      heading:     'Diego Fernando Pérez C.',
       experience:  { label: '// 01', heading: 'Experience' },
       education:   { label: '// 02', heading: 'Education' },
       ctaProjects: 'View projects',

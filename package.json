@@ -12,6 +12,9 @@
     "onlyBuiltDependencies": [
       "esbuild",
       "sharp"
+    ],
+    "ignoredBuiltDependencies": [
+      "puppeteer"
     ]
   },
   "dependencies": {
@@ -23,5 +26,8 @@
     "tailwindcss": "^4.2.4",
     "typescript": "^5.9.3",
     "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "puppeteer": "^24.42.0"
   }
 }

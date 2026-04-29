@@ -1,0 +1,357 @@
+// Genera public/cv-diego-perez.pdf
+// Ejecutar desde la raíz: node scripts/generate-cv.mjs
+
+import puppeteer from 'puppeteer';
+import { writeFileSync } from 'fs';
+import { fileURLToPath } from 'url';
+import { dirname, join } from 'path';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+
+const html = `<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --cyan: #0891b2;
+    --ink: #0f172a;
+    --dim: #475569;
+    --muted: #94a3b8;
+    --edge: #e2e8f0;
+    --surface: #f8fafc;
+  }
+
+  body {
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-size: 10pt;
+    color: var(--ink);
+    background: #fff;
+    padding: 32px 40px;
+    line-height: 1.5;
+  }
+
+  /* Header */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-bottom: 16px;
+    border-bottom: 2px solid var(--cyan);
+    margin-bottom: 20px;
+  }
+  .header-left h1 {
+    font-size: 22pt;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    color: var(--ink);
+    line-height: 1.1;
+  }
+  .header-left .title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 8pt;
+    color: var(--cyan);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+  .header-right {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+  .contact-item {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 7.5pt;
+    color: var(--dim);
+  }
+  .contact-item a { color: var(--dim); text-decoration: none; }
+
+  /* Sections */
+  .section { margin-bottom: 18px; }
+  .section-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 7pt;
+    font-weight: 500;
+    color: var(--cyan);
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid var(--edge);
+  }
+
+  /* Experience */
+  .exp-item { margin-bottom: 12px; }
+  .exp-item:last-child { margin-bottom: 0; }
+  .exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 2px;
+  }
+  .exp-role { font-weight: 600; font-size: 10pt; color: var(--ink); }
+  .exp-period {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 7.5pt;
+    color: var(--muted);
+  }
+  .exp-company { font-size: 9pt; color: var(--cyan); font-weight: 500; margin-bottom: 3px; }
+  .exp-desc { font-size: 8.5pt; color: var(--dim); line-height: 1.5; margin-bottom: 4px; }
+  .stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3px;
+  }
+  .tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 6.5pt;
+    color: var(--dim);
+    background: var(--surface);
+    border: 1px solid var(--edge);
+    padding: 1px 5px;
+    border-radius: 3px;
+  }
+
+  /* Projects */
+  .project-item {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+  .project-item:last-child { margin-bottom: 0; }
+  .project-bullet {
+    width: 4px;
+    height: 4px;
+    background: var(--cyan);
+    border-radius: 50%;
+    margin-top: 5px;
+    flex-shrink: 0;
+  }
+  .project-title { font-weight: 600; font-size: 9.5pt; color: var(--ink); }
+  .project-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 7pt;
+    color: var(--muted);
+    margin-left: 6px;
+  }
+  .project-desc { font-size: 8.5pt; color: var(--dim); margin-top: 1px; }
+
+  /* Education */
+  .edu-title { font-weight: 600; font-size: 10pt; }
+  .edu-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 7.5pt;
+    color: var(--cyan);
+    margin: 2px 0 4px;
+  }
+  .edu-desc { font-size: 8.5pt; color: var(--dim); }
+  .paper-link {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 7.5pt;
+    color: var(--cyan);
+    margin-top: 4px;
+  }
+
+  /* Two columns layout */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  /* Skills */
+  .skills-group { margin-bottom: 8px; }
+  .skills-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 7pt;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+  }
+</style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-left">
+      <h1>Diego Fernando Pérez C.</h1>
+      <p class="title">Senior Back-end Developer · Full-Stack</p>
+    </div>
+    <div class="header-right">
+      <span class="contact-item"><a href="mailto:diego.fdo.perez7@hotmail.com">diego.fdo.perez7@hotmail.com</a></span>
+      <span class="contact-item"><a href="https://diegoperez.co">diegoperez.co</a></span>
+      <span class="contact-item"><a href="https://github.com/TaxableCurve">github.com/TaxableCurve</a></span>
+      <span class="contact-item"><a href="https://linkedin.com/in/diego-fernando-p-42b010149">linkedin.com/in/diego-fernando-p-42b010149</a></span>
+    </div>
+  </header>
+
+  <!-- Experience -->
+  <section class="section">
+    <p class="section-title">Experiencia</p>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <span class="exp-role">Senior Back-end Developer</span>
+        <span class="exp-period">Abril 2025 — presente</span>
+      </div>
+      <p class="exp-company">Dropi</p>
+      <p class="exp-desc">Desarrollo y mantenimiento de servicios back-end en Go y Laravel. BFF con NestJS, base de datos PostgreSQL. Integraciones con plataformas externas (Shopify, Tienda Nube) y desarrollo full-stack puntual en Angular y React.</p>
+      <div class="stack">
+        <span class="tag">Go</span><span class="tag">Laravel</span><span class="tag">NestJS</span><span class="tag">PostgreSQL</span><span class="tag">Angular</span><span class="tag">React</span><span class="tag">AWS</span>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <span class="exp-role">Software Engineer</span>
+        <span class="exp-period">Abril 2024 — Marzo 2025</span>
+      </div>
+      <p class="exp-company">Alexandra Lozano Immigration Law</p>
+      <p class="exp-desc">Desarrollo de aplicaciones web responsive, lógica de servidor con NestJS y administración de bases de datos SQL Server.</p>
+      <div class="stack">
+        <span class="tag">Nuxt 3</span><span class="tag">Vue 3</span><span class="tag">NestJS</span><span class="tag">TypeScript</span><span class="tag">SQL Server</span>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <span class="exp-role">Ingeniero de Desarrollo de Software</span>
+        <span class="exp-period">Sep 2021 — Abril 2024</span>
+      </div>
+      <p class="exp-company">DreamCode Software</p>
+      <p class="exp-desc">Desarrollo full-stack con Angular (Microfrontends) y Spring Boot (Microservicios). Diseño de bases de datos y gestión de APIs con AWS API Gateway.</p>
+      <div class="stack">
+        <span class="tag">Angular</span><span class="tag">Spring Boot</span><span class="tag">PostgreSQL</span><span class="tag">DynamoDB</span><span class="tag">AWS</span>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <span class="exp-role">Ingeniero de Desarrollo e Investigación</span>
+        <span class="exp-period">Feb 2021 — Sep 2021</span>
+      </div>
+      <p class="exp-company">Axede S.A.S.</p>
+      <p class="exp-desc">Investigación de tecnologías y desarrollo en Python, C++ y JavaScript. Manejo de bases de datos SQLite y MongoDB.</p>
+      <div class="stack">
+        <span class="tag">Python</span><span class="tag">C++</span><span class="tag">JavaScript</span><span class="tag">SQLite</span><span class="tag">MongoDB</span>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <span class="exp-role">Ingeniero de Desarrollo de Software</span>
+        <span class="exp-period">Nov 2019 — Feb 2021</span>
+      </div>
+      <p class="exp-company">QW Health</p>
+      <p class="exp-desc">Desarrollo full-stack con el stack MEAN. Líder de proyecto y responsable del despliegue y actualización de productos.</p>
+      <div class="stack">
+        <span class="tag">MongoDB</span><span class="tag">Express</span><span class="tag">Angular</span><span class="tag">Node.js</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects + Education in two columns -->
+  <div class="two-col">
+
+    <section class="section">
+      <p class="section-title">Proyectos destacados</p>
+
+      <div class="project-item">
+        <div class="project-bullet"></div>
+        <div>
+          <div>
+            <span class="project-title">Automatización de indemnizaciones agrícolas</span>
+            <span class="project-meta">2024 · Angular · Spring Boot · PostgreSQL</span>
+          </div>
+          <p class="project-desc">Redujo el proceso de liquidación de pólizas colectivas de hasta una semana a un día para cooperativas caficultoras.</p>
+        </div>
+      </div>
+
+      <div class="project-item">
+        <div class="project-bullet"></div>
+        <div>
+          <div>
+            <span class="project-title">Navegación indoor universitaria</span>
+            <span class="project-meta">2022 · Flutter · Google Maps SDK</span>
+          </div>
+          <p class="project-desc">App móvil con +5.000 descargas en Android e iOS. Tesis publicada como artículo en iJIM.</p>
+        </div>
+      </div>
+
+      <div class="project-item">
+        <div class="project-bullet"></div>
+        <div>
+          <div>
+            <span class="project-title">Plataforma IoT de bioseguridad</span>
+            <span class="project-meta">2020 · Angular · Node.js · Firebase</span>
+          </div>
+          <p class="project-desc">Monitoreo en tiempo real de ~100 dispositivos en empresas, universidades y entidades financieras de Colombia.</p>
+        </div>
+      </div>
+    </section>
+
+    <div>
+      <section class="section">
+        <p class="section-title">Formación</p>
+        <p class="edu-title">Ingeniería de Sistemas</p>
+        <p class="edu-meta">Universidad Santiago de Cali · 2016 — 2022</p>
+        <p class="edu-desc">Tesis con publicación académica internacional.</p>
+        <p class="paper-link">↗ iJIM · doi:10.3991/ijim.v17i24.42905</p>
+      </section>
+
+      <section class="section">
+        <p class="section-title">Stack principal</p>
+        <div class="skills-group">
+          <p class="skills-label">Backend</p>
+          <div class="stack">
+            <span class="tag">Go</span><span class="tag">NestJS</span><span class="tag">Laravel</span><span class="tag">Spring Boot</span><span class="tag">Node.js</span>
+          </div>
+        </div>
+        <div class="skills-group">
+          <p class="skills-label">Frontend</p>
+          <div class="stack">
+            <span class="tag">Angular</span><span class="tag">React</span><span class="tag">Flutter</span><span class="tag">Vue 3</span>
+          </div>
+        </div>
+        <div class="skills-group">
+          <p class="skills-label">Datos · Infra</p>
+          <div class="stack">
+            <span class="tag">PostgreSQL</span><span class="tag">MongoDB</span><span class="tag">AWS</span><span class="tag">Docker</span><span class="tag">Firebase</span>
+          </div>
+        </div>
+      </section>
+    </div>
+
+  </div>
+
+</body>
+</html>`;
+
+const browser = await puppeteer.launch({
+  executablePath: '/usr/bin/google-chrome',
+  args: ['--no-sandbox', '--disable-setuid-sandbox'],
+});
+const page = await browser.newPage();
+await page.setContent(html, { waitUntil: 'networkidle0' });
+
+const pdfPath = join(__dirname, '../public/cv-diego-perez.pdf');
+await page.pdf({
+  path: pdfPath,
+  format: 'A4',
+  margin: { top: 0, right: 0, bottom: 0, left: 0 },
+  printBackground: true,
+});
+
+await browser.close();
+
+// Guardar también el HTML para debug
+writeFileSync(join(__dirname, '../public/cv-diego-perez.html'), html);
+
+console.log('cv-diego-perez.pdf generado en public/');

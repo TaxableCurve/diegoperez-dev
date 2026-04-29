@@ -34,7 +34,7 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" v
 
   <!-- Nombre -->
   <text x="80" y="240" font-family="system-ui, -apple-system, sans-serif"
-    font-size="62" font-weight="700" fill="#dce4f0" letter-spacing="-1">Diego Fernando Perez</text>
+    font-size="62" font-weight="700" fill="#dce4f0" letter-spacing="-1">Diego Fernando Perez C.</text>
 
   <!-- Tagline -->
   <text x="80" y="298" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="400" xml:space="preserve"><tspan fill="#dce4f0">Disfruto el </tspan><tspan fill="#22d3ee">frontend</tspan><tspan fill="#dce4f0">.</tspan></text>
