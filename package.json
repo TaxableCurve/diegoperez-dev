@@ -30,7 +30,7 @@
     "astro": "^6.1.9",
     "tailwindcss": "^4.2.4",
     "typescript": "^5.9.3",
-    "zod": "^3.25.76"
+    "zod": "^4.4.3"
   },
   "devDependencies": {
     "puppeteer": "^24.42.0"
