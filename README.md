@@ -1,21 +1,24 @@
-# Portfolio (working name)
+# Diego Pérez — Portafolio
 
-Sitio web personal — portafolio bilingüe (ES/EN) de Diego Fernando Pérez.
+Sitio web personal bilingüe (ES/EN) de Diego Fernando Pérez Carvajal.
 
-## Estado: planificación (v0.1)
+Próximamente en [diegoperez.co](https://diegoperez.co).
 
-Antes de generar código, los documentos en `docs/` definen el qué y el por qué.
+## Stack
 
-## Documentación
+- [Astro 5](https://astro.build) — SSG con islands
+- [Tailwind CSS v4](https://tailwindcss.com) — estilos
+- [Cloudflare Pages](https://pages.cloudflare.com) — deploy
 
-- [`docs/01-vision.md`](docs/01-vision.md) — Objetivo, audiencia, diferenciador.
-- [`docs/02-estructura.md`](docs/02-estructura.md) — Rutas y anatomía de cada página.
-- [`docs/03-stack-tecnico.md`](docs/03-stack-tecnico.md) — Astro + Tailwind + Cloudflare Pages.
-- [`docs/04-flujo-contenido.md`](docs/04-flujo-contenido.md) — Cómo se crea/publica un caso de estudio.
-- [`docs/05-roadmap.md`](docs/05-roadmap.md) — Hitos por versión.
+## Desarrollo local
 
-## Próximos pasos
+```bash
+pnpm install
+pnpm dev        # http://localhost:4321
+pnpm build      # build de producción
+pnpm preview    # previsualizar el build
+```
 
-1. Confirmar nombre + dominio.
-2. Elegir 3 proyectos a documentar.
-3. `npm create astro@latest` y andamiaje inicial.
+## Licencia
+
+Código fuente bajo [MIT](LICENSE). El contenido (textos, casos de estudio, marca personal) es copyright Diego Fernando Pérez Carvajal — todos los derechos reservados.
